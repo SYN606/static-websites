@@ -4,270 +4,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- tailwind css link -->
+    <title>Voyage Vista - Log In to Your Travel Account</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS -->
     <link rel="stylesheet" href="../output.css">
-    <title>Voyage Vista - Login into Your account</title>
 </head>
 
-<body>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
     <!-- Navbar -->
-    <nav class="bg-gray-200 shadow shadow-gray-300 w-100 px-8 md:px-auto">
-        <div class="md:h-16 h-28 mx-auto md:px-4 container flex items-center justify-between flex-wrap md:flex-nowrap">
-            <!-- Logo -->
-            <div class="text-indigo-500 md:order-1 flex items-center">
-                <!-- Heroicon - Airplane -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M2.5 19.992a.707.707 0 01.708-.707l5.353.053L11.34 15H8.267a1 1 0 01-.928-1.371l3.631-9.34a.707.707 0 01.968-.422l6.252 3.126a1.5 1.5 0 01-.325 2.856l-5.052.894-3.73 5.347 7.18-.282c.391-.02.756.184.937.547l3.577 7.153a.707.707 0 01-.681 1.013H3.207a.707.707 0 01-.707-.707v-2.122z" />
-                </svg>
-                <span class="ml-2 text-xl font-bold">Voyage Vista</span>
-            </div>
-            <div class="text-gray-500 order-3 w-full md:w-auto md:order-2">
-                <ul class="flex font-semibold justify-between">
-                    <li class="md:px-4 md:py-2 hover:text-indigo-400">
-                        <a href="../index.html">Home</a>
-                    </li>
-                    <li class="md:px-4 md:py-2 hover:text-indigo-400">
-                        <a href="destinations/dest.html">Destinations</a>
-                    </li>
-                    <li class="md:px-4 md:py-2 hover:text-indigo-400">
-                        <a href="gallery.html">Gallery</a>
-                    </li>
-                    <li class="md:px-4 md:py-2 hover:text-indigo-400">
-                        <a href="contact.html">Contact</a>
-                    </li>
-                    <li class="md:px-4 md:py-2 hover:text-indigo-400">
-                        <a href="about.html">About Us</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="order-2 md:order-3">
-                <a href="signup.html"
-                    class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2">
-                    <!-- Heroicons - Login Solid -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span>Sign Up</span>
+    <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100 shadow-sm w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center gap-2 group">
+                    <div
+                        class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 to-blue-500 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition transform">
+                        <i class="fa-solid fa-plane-departure text-lg"></i>
+                    </div>
+                    <span
+                        class="text-2xl font-black bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">Voyage
+                        Vista</span>
                 </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden lg:flex items-center space-x-1 font-semibold text-gray-600 text-sm">
+                    <a href="../index.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Home</a>
+                    <a href="destinations/dest.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Destinations</a>
+                    <a href="packages.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Packages</a>
+                    <a href="booking.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Trip Planner</a>
+                    <a href="gallery.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Gallery</a>
+                    <a href="blog.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Blog</a>
+                    <a href="faq.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">FAQs</a>
+                    <a href="about.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">About Us</a>
+                    <a href="contact.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Contact</a>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="flex items-center gap-3">
+                    <a href="signup.html"
+                        class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl shadow-sm transition">
+                        Sign Up
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Login section -->
-    <div class="h-screen md:flex">
-        <!-- Left Section - Travel-related design -->
+    <!-- Main Login Container -->
+    <main class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div
-            class="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-blue-800 to-indigo-600 justify-around items-center hidden">
-            <div>
-                <h1 class="text-white font-bold text-4xl font-sans">Voyage Vista</h1>
-                <p class="text-white mt-2">Your gateway to the world’s best destinations</p>
-                <a href="index.html"
-                    class="block w-32 bg-white text-indigo-800 mt-4 py-2 text-center rounded-xl font-bold mb-2">Discover
-                    More</a>
-            </div>
-            <div class="absolute -bottom-32 -left-40 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8">
-            </div>
-            <div class="absolute -bottom-40 -left-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8">
-            </div>
-            <div class="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
-            <div class="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
-        </div>
+            class="max-w-4xl w-full bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden grid grid-cols-1 md:grid-cols-12">
 
-        <!-- Right Section - Login Form -->
-        <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
-            <form class="bg-white w-full max-w-md p-8 shadow-lg rounded-lg">
-                <h1 class="text-gray-800 font-bold text-2xl mb-3">Welcome Back to Voyage Vista!</h1>
-                <p class="text-sm font-normal text-gray-600 mb-6">Log in to start your next adventure</p>
-
-                <!-- Username -->
-                <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
-                    </svg>
-                    <input class="pl-2 outline-none border-none" type="text" name="username" placeholder="Username" />
-                </div>
-
-                <!-- Password -->
-                <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
-                    </svg>
-                    <input class="pl-2 outline-none border-none" type="password" name="password"
-                        placeholder="Password" />
-                </div>
-
-                <!-- Login Button -->
-                <button type="submit"
-                    class="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-4">Log
-                    In</button>
-
-                <!-- Forgot Password and Create New Account Links -->
-                <div class="text-center">
-                    <a href="#" class="text-sm ml-2 hover:text-blue-500 cursor-pointer">Forgot Password?</a>
-                </div>
-                <div class="text-center mt-2">
-                    <a href="signup.html" class="text-sm ml-2 hover:text-blue-500 cursor-pointer">Create New Account</a>
-                </div>
-                <div class="text-sm text-center text-gray-600 mt-4">
-                    By logging in, you agree to our
-                    <a href="#" class="text-indigo-600 hover:text-indigo-800">Terms and Conditions</a> and
-                    <a href="#" class="text-indigo-600 hover:text-indigo-800">Privacy Policy</a>.
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Additional Content Section -->
-    <div class="bg-blue-100 py-16 text-center">
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">Join the Voyage Vista Family</h2>
-        <p class="text-lg text-gray-700 mb-6">Create your account today to unlock personalized travel experiences,
-            offers, and updates.</p>
-        <a href="signup.html"
-            class="inline-block bg-indigo-600 text-white text-lg py-2 px-6 rounded-xl hover:bg-indigo-700 transition duration-300">Sign
-            Up Now</a>
-    </div>
-
-    <!-- Popular Destinations Section -->
-    <div class="bg-white py-16">
-        <h3 class="text-3xl font-bold text-gray-800 text-center mb-6">Explore Our Most Popular Destinations</h3>
-        <p class="text-lg text-gray-700 text-center mb-8">Whether you’re looking for adventure or relaxation, we’ve got
-            you covered with hand-picked destinations from around the world.</p>
-        <div class="flex justify-center space-x-8">
-            <a href="destinations/europe.html"
-                class="inline-block bg-gray-200 text-gray-800 text-lg py-3 px-6 rounded-xl hover:bg-gray-300 transition duration-300">Explore
-                Europe</a>
-            <a href="destinations/asia.html"
-                class="inline-block bg-gray-200 text-gray-800 text-lg py-3 px-6 rounded-xl hover:bg-gray-300 transition duration-300">Explore
-                Asia</a>
-            <a href="destinations/america.html"
-                class="inline-block bg-gray-200 text-gray-800 text-lg py-3 px-6 rounded-xl hover:bg-gray-300 transition duration-300">Explore
-                America</a>
-        </div>
-    </div>
-
-
-    <!-- footer -->
-    <footer class="bg-white lg:grid lg:grid-cols-5">
-        <div class="relative block h-32 lg:col-span-2 lg:h-full">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
-                alt="Travel" class="absolute inset-0 h-full w-full object-cover" />
-        </div>
-
-        <div class="px-4 py-16 sm:px-6 lg:col-span-3 lg:px-8">
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
-                <div>
-                    <p>
-                        <span class="text-xs uppercase tracking-wide text-gray-500"> Call us </span>
-                        <a href="#" class="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl">
-                            +1-800-700-7689
-                        </a>
+            <!-- Left Branding Side -->
+            <div
+                class="md:col-span-5 bg-gradient-to-br from-indigo-900 via-blue-900 to-indigo-950 p-8 sm:p-10 text-white flex flex-col justify-between relative overflow-hidden">
+                <div class="relative z-10">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-plane-departure text-xl text-white"></i>
+                    </div>
+                    <span class="text-xs uppercase font-bold tracking-wider text-amber-400">Voyage Vista Portal</span>
+                    <h2 class="text-2xl sm:text-3xl font-black mt-2 leading-tight">Welcome Back Traveler</h2>
+                    <p class="text-xs text-indigo-200 mt-3 leading-relaxed">
+                        Access your itineraries, view saved boarding passes, and unlock members-only seasonal travel
+                        discounts.
                     </p>
-
-                    <ul class="mt-8 space-y-1 text-sm text-gray-700">
-                        <li>Monday to Friday: 9am - 7pm</li>
-                        <li>Weekend: 10am - 4pm</li>
-                    </ul>
-
-                    <ul class="mt-8 flex gap-6">
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75" aria-label="Facebook">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <!-- Facebook SVG content -->
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75" aria-label="Instagram">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <!-- Instagram SVG content -->
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75" aria-label="Twitter">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <!-- Twitter SVG content -->
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
 
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <!-- Demo Credentials Helper -->
+                <div class="relative z-10 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/10 mt-8">
+                    <span class="text-[10px] uppercase font-bold text-amber-300 block mb-1">Quick Demo Evaluation</span>
+                    <p class="text-xs text-white/90 mb-3">Click below to instantly log in as a test traveler without
+                        typing credentials:</p>
+                    <button type="button" onclick="quickDemoLogin()"
+                        class="w-full py-2 bg-amber-400 hover:bg-amber-500 text-gray-950 font-bold text-xs rounded-xl shadow transition">
+                        ⚡ Quick Demo Sign In
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Login Form -->
+            <div class="md:col-span-7 p-8 sm:p-12 flex flex-col justify-center">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-black text-gray-900">Sign in to your account</h3>
+                    <p class="text-xs text-gray-500 mt-1">
+                        Don't have an account yet? <a href="signup.html"
+                            class="text-indigo-600 font-bold hover:underline">Create a free account</a>
+                    </p>
+                </div>
+
+                <form id="login-form" onsubmit="handleLoginSubmit(event)" class="space-y-4">
                     <div>
-                        <p class="font-medium text-gray-900">Travel Services</p>
-                        <ul class="mt-6 space-y-4 text-sm">
-                            <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Flight Booking </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Hotel Reservations </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Holiday Packages </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Travel Insurance </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Car Rentals </a>
-                            </li>
-                        </ul>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Email or Username</label>
+                        <div class="relative">
+                            <input type="text" id="login-email" required placeholder="alex.morgan@example.com"
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-sm bg-gray-50">
+                            <i class="fa-solid fa-envelope text-gray-400 absolute left-3.5 top-3.5"></i>
+                        </div>
                     </div>
 
                     <div>
-                        <p class="font-medium text-gray-900">Explore</p>
-                        <ul class="mt-6 space-y-4 text-sm">
-                            <li>
-                                <a href="about.html" class="text-gray-700 transition hover:opacity-75"> About Us </a>
-                            </li>
-                            <li>
-                                <a href="destinations/dest.html" class="text-gray-700 transition hover:opacity-75">
-                                    Destinations </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Travel Blog </a>
-                            </li>
-                            <li>
-                                <a href="contact.html" class="text-gray-700 transition hover:opacity-75"> Contact </a>
-                            </li>
-                        </ul>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="block text-xs font-bold text-gray-700 uppercase">Password</label>
+                            <a href="#"
+                                onclick="showToast('Password reset link sent to registered email address.', 'info')"
+                                class="text-xs text-indigo-600 hover:underline">Forgot?</a>
+                        </div>
+                        <div class="relative">
+                            <input type="password" id="login-password" required placeholder="••••••••"
+                                class="w-full pl-10 pr-10 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-sm bg-gray-50">
+                            <i class="fa-solid fa-lock text-gray-400 absolute left-3.5 top-3.5"></i>
+                            <button type="button" onclick="togglePasswordVisibility('login-password')"
+                                class="absolute right-3.5 top-3.5 text-gray-400 hover:text-gray-600">
+                                <i class="fa-regular fa-eye text-sm"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="flex items-center justify-between text-xs py-1">
+                        <label class="flex items-center gap-2 cursor-pointer text-gray-600">
+                            <input type="checkbox" checked class="w-4 h-4 text-indigo-600 rounded">
+                            <span>Keep me logged in on this device</span>
+                        </label>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full py-3.5 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold text-sm rounded-xl shadow-md transition transform hover:-translate-y-0.5">
+                        Sign In &rarr;
+                    </button>
+                </form>
+
+                <p class="text-[11px] text-gray-400 text-center mt-6">
+                    By signing in, you agree to Voyage Vista's <a href="ToS_and_Privacy.html"
+                        class="underline text-gray-600">Terms of Service</a> & <a href="ToS_and_Privacy.html"
+                        class="underline text-gray-600">Privacy Policy</a>.
+                </p>
             </div>
 
-            <div class="mt-12 border-t border-gray-100 pt-12">
-                <div class="sm:flex sm:items-center sm:justify-between">
-                    <ul class="flex flex-wrap gap-4 text-xs">
-                        <li>
-                            <a href="ToS_and_Privacy.html" class="text-gray-500 transition hover:opacity-75"> Terms of
-                                Service </a>
-                        </li>
-                        <li>
-                            <a href="ToS_and_Privacy.html" class="text-gray-500 transition hover:opacity-75"> Privacy
-                                Policy </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-gray-500 transition hover:opacity-75"> FAQs </a>
-                        </li>
-                    </ul>
-
-                    <p class="mt-8 text-xs text-gray-500 sm:mt-0">
-                        &copy; 2025. Voyage Vista Co. All rights reserved.
-                    </p>
-                </div>
-            </div>
         </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-8 text-center text-xs border-t border-gray-800">
+        <p>&copy; 2026 Voyage Vista Co. All rights reserved. <a href="../index.html"
+                class="text-indigo-400 hover:underline ml-2">Back to Homepage</a></p>
     </footer>
 
+    <!-- Shared JS -->
+    <script src="../js/main.js"></script>
+
+    <script>
+        function togglePasswordVisibility(fieldId) {
+            const input = document.getElementById(fieldId);
+            if (input.type === 'password') {
+                input.type = 'text';
+            } else {
+                input.type = 'password';
+            }
+        }
+
+        function quickDemoLogin() {
+            const demoUser = {
+                name: 'Alex Morgan',
+                email: 'alex.morgan@example.com'
+            };
+            VV_AUTH.setUser(demoUser);
+            showToast('Signed in successfully as Alex Morgan!', 'success');
+            setTimeout(() => {
+                window.location.href = '../index.html';
+            }, 800);
+        }
+
+        function handleLoginSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const name = email.split('@')[0].replace('.', ' ');
+            const formattedName = name.charAt(0).toUpperCase() + name.slice(1);
+
+            VV_AUTH.setUser({
+                name: formattedName || 'Traveler',
+                email: email
+            });
+
+            showToast(`Welcome back, ${formattedName}!`, 'success');
+            setTimeout(() => {
+                window.location.href = '../index.html';
+            }, 800);
+        }
+    </script>
 </body>
 
 </html>

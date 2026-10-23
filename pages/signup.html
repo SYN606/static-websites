@@ -4,295 +4,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- tailwind css link -->
+    <title>Voyage Vista - Create Your Free Traveler Account</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS -->
     <link rel="stylesheet" href="../output.css">
-    <title>Voyage Vista - Create your account</title>
 </head>
 
-<body>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
 
     <!-- Navbar -->
-    <nav class="bg-gray-200 shadow shadow-gray-300 w-100 px-8 md:px-auto">
-        <div class="md:h-16 h-28 mx-auto md:px-4 container flex items-center justify-between flex-wrap md:flex-nowrap">
-            <!-- Logo -->
-            <div class="text-indigo-500 md:order-1 flex items-center">
-                <!-- Heroicon - Airplane -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M2.5 19.992a.707.707 0 01.708-.707l5.353.053L11.34 15H8.267a1 1 0 01-.928-1.371l3.631-9.34a.707.707 0 01.968-.422l6.252 3.126a1.5 1.5 0 01-.325 2.856l-5.052.894-3.73 5.347 7.18-.282c.391-.02.756.184.937.547l3.577 7.153a.707.707 0 01-.681 1.013H3.207a.707.707 0 01-.707-.707v-2.122z" />
-                </svg>
-                <span class="ml-2 text-xl font-bold">Voyage Vista</span>
-            </div>
-            <div class="text-gray-500 order-3 w-full md:w-auto md:order-2">
-                <ul class="flex font-semibold justify-between">
-                    <li class="md:px-4 md:py-2 hover:text-indigo-400">
-                        <a href="../index.html">Home</a>
-                    </li>
-                    <li class="md:px-4 md:py-2 hover:text-indigo-400">
-                        <a href="destinations/dest.html">Destinations</a>
-                    </li>
-                    <li class="md:px-4 md:py-2 hover:text-indigo-400">
-                        <a href="gallery.html">Gallery</a>
-                    </li>
-                    <li class="md:px-4 md:py-2 hover:text-indigo-400">
-                        <a href="contact.html">Contact</a>
-                    </li>
-                    <li class="md:px-4 md:py-2 hover:text-indigo-400">
-                        <a href="about.html">About Us</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="order-2 md:order-3">
-                <a href="login.html"
-                    class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-gray-50 rounded-xl flex items-center gap-2">
-                    <!-- Heroicons - Login Solid -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span>Login</span>
+    <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100 shadow-sm w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center gap-2 group">
+                    <div
+                        class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 to-blue-500 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition transform">
+                        <i class="fa-solid fa-plane-departure text-lg"></i>
+                    </div>
+                    <span
+                        class="text-2xl font-black bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">Voyage
+                        Vista</span>
                 </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden lg:flex items-center space-x-1 font-semibold text-gray-600 text-sm">
+                    <a href="../index.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Home</a>
+                    <a href="destinations/dest.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Destinations</a>
+                    <a href="packages.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Packages</a>
+                    <a href="booking.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Trip Planner</a>
+                    <a href="gallery.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Gallery</a>
+                    <a href="blog.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Blog</a>
+                    <a href="faq.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">FAQs</a>
+                    <a href="about.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">About Us</a>
+                    <a href="contact.html"
+                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Contact</a>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="flex items-center gap-3">
+                    <a href="login.html"
+                        class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs rounded-xl transition">
+                        Log In
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
+    <!-- Main Signup Container -->
+    <main class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div
+            class="max-w-4xl w-full bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden grid grid-cols-1 md:grid-cols-12">
 
-    <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div class="sm:mx-auto sm:w-full sm:max-w-4xl">
-            <img class="mx-auto h-10 w-auto" src="https://www.svgrepo.com/show/301692/login.svg" alt="Workflow">
-            <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-                Create a new account
-            </h2>
-            <p class="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
-                Or
-                <a href="login.html"
-                    class="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                    login to your account
-                </a>
-            </p>
-        </div>
+            <!-- Left Branding Side -->
+            <div
+                class="md:col-span-5 bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 p-8 sm:p-10 text-white flex flex-col justify-between relative overflow-hidden">
+                <div class="relative z-10">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-plane-departure text-xl text-white"></i>
+                    </div>
+                    <span class="text-xs uppercase font-bold tracking-wider text-amber-400">Join Voyage Vista
+                        Club</span>
+                    <h2 class="text-2xl sm:text-3xl font-black mt-2 leading-tight">Unlock Exclusive Worldwide Privileges
+                    </h2>
+                    <p class="text-xs text-indigo-200 mt-3 leading-relaxed">
+                        Become a member today and instantly receive 15% off your first holiday package booking, free
+                        room upgrades, and custom itinerary planning.
+                    </p>
+                </div>
 
-        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-4xl">
-            <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-                <form method="POST" action="#" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <!-- First Name Field -->
-                    <div>
-                        <label for="first_name" class="block text-sm font-medium leading-5 text-gray-700">First
-                            Name</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                            <input id="first_name" name="first_name" placeholder="John" type="text" required=""
-                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                <div class="relative z-10 space-y-2 mt-8 text-xs text-indigo-200">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-amber-400"></i>
+                        <span>Personalized trip cost estimates</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-amber-400"></i>
+                        <span>Free 100% money-back cancellation</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-amber-400"></i>
+                        <span>24/7 global priority concierge</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Signup Form -->
+            <div class="md:col-span-7 p-8 sm:p-10 flex flex-col justify-center">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-black text-gray-900">Create your account</h3>
+                    <p class="text-xs text-gray-500 mt-1">
+                        Already have an account? <a href="login.html"
+                            class="text-indigo-600 font-bold hover:underline">Log in here</a>
+                    </p>
+                </div>
+
+                <form id="signup-form" onsubmit="handleSignupSubmit(event)" class="space-y-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">First Name *</label>
+                            <input type="text" id="su-fname" required placeholder="Alex"
+                                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs bg-gray-50">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Last Name *</label>
+                            <input type="text" id="su-lname" required placeholder="Morgan"
+                                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs bg-gray-50">
                         </div>
                     </div>
 
-                    <!-- Last Name Field -->
-                    <div>
-                        <label for="last_name" class="block text-sm font-medium leading-5 text-gray-700">Last
-                            Name</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                            <input id="last_name" name="last_name" placeholder="Doe" type="text" required=""
-                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Email Address *</label>
+                            <input type="email" id="su-email" required placeholder="alex@example.com"
+                                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs bg-gray-50">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Phone Number</label>
+                            <input type="tel" id="su-phone" placeholder="+1 (555) 234-5678"
+                                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs bg-gray-50">
                         </div>
                     </div>
 
-                    <!-- Username Field -->
-                    <div>
-                        <label for="username" class="block text-sm font-medium leading-5 text-gray-700">Username</label>
-                        <div class="mt-1 flex rounded-md shadow-sm">
-                            <span
-                                class="inline-flex h-10 items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
-                                iworkedon.com/
-                            </span>
-                            <input id="username" name="username" placeholder="john_doe" type="text" required=""
-                                class="flex-1  border border-gray-300 form-input pl-3 block w-full rounded-none rounded-r-md transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Password *</label>
+                            <input type="password" id="su-pwd" required placeholder="••••••••"
+                                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs bg-gray-50">
                         </div>
-                    </div>
-
-                    <!-- Email Field -->
-                    <div>
-                        <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Email
-                            address</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                            <input id="email" name="email" placeholder="user@example.com" type="email" required=""
-                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                        </div>
-                    </div>
-
-                    <!-- Phone Number Field -->
-                    <div>
-                        <label for="phone" class="block text-sm font-medium leading-5 text-gray-700">Phone
-                            Number</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                            <input id="phone" name="phone" placeholder="+1 123 456 7890" type="tel" required=""
-                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                        </div>
-                    </div>
-
-                    <!-- Country Field -->
-                    <div>
-                        <label for="country" class="block text-sm font-medium leading-5 text-gray-700">Country</label>
-                        <div class="mt-1 relative rounded-md shadow-sm">
-                            <select id="country" name="country" required=""
-                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                                <option value="usa">United States</option>
-                                <option value="canada">Canada</option>
-                                <option value="uk">United Kingdom</option>
-                                <option value="india">India</option>
-                                <option value="australia">Australia</option>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Country</label>
+                            <select id="su-country"
+                                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs bg-white">
+                                <option value="United States">United States</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Germany">Germany</option>
+                                <option value="France">France</option>
+                                <option value="Singapore">Singapore</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
                     </div>
 
-                    <!-- Password Field -->
-                    <div>
-                        <label for="password" class="block text-sm font-medium leading-5 text-gray-700">Password</label>
-                        <div class="mt-1 rounded-md shadow-sm">
-                            <input id="password" name="password" type="password" required=""
-                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                        </div>
+                    <div class="flex items-start gap-2 text-xs py-2">
+                        <input type="checkbox" required id="su-agree" checked
+                            class="w-4 h-4 text-indigo-600 rounded mt-0.5">
+                        <label for="su-agree" class="text-gray-600">
+                            I agree to the <a href="ToS_and_Privacy.html" class="underline text-indigo-600">Terms of
+                                Service</a> & <a href="ToS_and_Privacy.html" class="underline text-indigo-600">Privacy
+                                Policy</a>.
+                        </label>
                     </div>
 
-                    <!-- Confirm Password Field -->
-                    <div>
-                        <label for="password_confirmation"
-                            class="block text-sm font-medium leading-5 text-gray-700">Confirm Password</label>
-                        <div class="mt-1 rounded-md shadow-sm">
-                            <input id="password_confirmation" name="password_confirmation" type="password" required=""
-                                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
-                        </div>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="col-span-2 mt-6">
-                        <span class="block w-full rounded-md shadow-sm">
-                            <button type="submit"
-                                class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                                Create account
-                            </button>
-                        </span>
-                    </div>
+                    <button type="submit"
+                        class="w-full py-3.5 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold text-sm rounded-xl shadow-md transition transform hover:-translate-y-0.5">
+                        Complete Account Registration &rarr;
+                    </button>
                 </form>
             </div>
+
         </div>
-    </div>
+    </main>
 
-
-    <!-- footer -->
-    <footer class="bg-white lg:grid lg:grid-cols-5">
-        <div class="relative block h-32 lg:col-span-2 lg:h-full">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
-                alt="Travel" class="absolute inset-0 h-full w-full object-cover" />
-        </div>
-
-        <div class="px-4 py-16 sm:px-6 lg:col-span-3 lg:px-8">
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
-                <div>
-                    <p>
-                        <span class="text-xs uppercase tracking-wide text-gray-500"> Call us </span>
-                        <a href="#" class="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl">
-                            +1-800-700-7689
-                        </a>
-                    </p>
-
-                    <ul class="mt-8 space-y-1 text-sm text-gray-700">
-                        <li>Monday to Friday: 9am - 7pm</li>
-                        <li>Weekend: 10am - 4pm</li>
-                    </ul>
-
-                    <ul class="mt-8 flex gap-6">
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75" aria-label="Facebook">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <!-- Facebook SVG content -->
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75" aria-label="Instagram">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <!-- Instagram SVG content -->
-                                </svg>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-gray-700 transition hover:opacity-75" aria-label="Twitter">
-                                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <!-- Twitter SVG content -->
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div>
-                        <p class="font-medium text-gray-900">Travel Services</p>
-                        <ul class="mt-6 space-y-4 text-sm">
-                            <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Flight Booking </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Hotel Reservations </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Holiday Packages </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Travel Insurance </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Car Rentals </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <p class="font-medium text-gray-900">Explore</p>
-                        <ul class="mt-6 space-y-4 text-sm">
-                            <li>
-                                <a href="about.html" class="text-gray-700 transition hover:opacity-75"> About Us </a>
-                            </li>
-                            <li>
-                                <a href="destinations/dest.html" class="text-gray-700 transition hover:opacity-75">
-                                    Destinations </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-700 transition hover:opacity-75"> Travel Blog </a>
-                            </li>
-                            <li>
-                                <a href="contact.html" class="text-gray-700 transition hover:opacity-75"> Contact </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12 border-t border-gray-100 pt-12">
-                <div class="sm:flex sm:items-center sm:justify-between">
-                    <ul class="flex flex-wrap gap-4 text-xs">
-                        <li>
-                            <a href="ToS_and_Privacy.html" class="text-gray-500 transition hover:opacity-75"> Terms of
-                                Service </a>
-                        </li>
-                        <li>
-                            <a href="ToS_and_Privacy.html" class="text-gray-500 transition hover:opacity-75"> Privacy
-                                Policy </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-gray-500 transition hover:opacity-75"> FAQs </a>
-                        </li>
-                    </ul>
-
-                    <p class="mt-8 text-xs text-gray-500 sm:mt-0">
-                        &copy; 2025. Voyage Vista Co. All rights reserved.
-                    </p>
-                </div>
-            </div>
-        </div>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-8 text-center text-xs border-t border-gray-800">
+        <p>&copy; 2026 Voyage Vista Co. All rights reserved. <a href="../index.html"
+                class="text-indigo-400 hover:underline ml-2">Back to Homepage</a></p>
     </footer>
 
-    </body>
+    <!-- Shared JS -->
+    <script src="../js/main.js"></script>
+
+    <script>
+        function handleSignupSubmit(e) {
+            e.preventDefault();
+            const fname = document.getElementById('su-fname').value.trim();
+            const lname = document.getElementById('su-lname').value.trim();
+            const email = document.getElementById('su-email').value.trim();
+            const fullName = `${fname} ${lname}`;
+
+            VV_AUTH.setUser({
+                name: fullName,
+                email: email
+            });
+
+            showToast(`🎉 Account created! Welcome to Voyage Vista, ${fname}!`, 'success');
+            setTimeout(() => {
+                window.location.href = '../index.html';
+            }, 800);
+        }
+    </script>
+</body>
 
 </html>

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyage Vista - Interactive Trip Planner & Instant Booking</title>
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS compiled output -->
+    <link rel="stylesheet" href="../output.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100 shadow-sm w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="../index.html" class="flex items-center gap-2 group">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 to-blue-500 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition transform">
+                        <i class="fa-solid fa-plane-departure text-lg"></i>
+                    </div>
+                    <span class="text-2xl font-black bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">Voyage Vista</span>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden lg:flex items-center space-x-1 font-semibold text-gray-600 text-sm">
+                    <a href="../index.html" class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Home</a>
+                    <a href="destinations/dest.html" class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Destinations</a>
+                    <a href="packages.html" class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Packages</a>
+                    <a href="booking.html" class="px-3 py-2 rounded-xl text-indigo-600 bg-indigo-50 font-bold transition">Trip Planner</a>
+                    <a href="gallery.html" class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Gallery</a>
+                    <a href="blog.html" class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Blog</a>
+                    <a href="faq.html" class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">FAQs</a>
+                    <a href="about.html" class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">About Us</a>
+                    <a href="contact.html" class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Contact</a>
+                </div>
+
+                <!-- Right Actions -->
+                <div class="flex items-center gap-3">
+                    <div class="auth-nav-container" data-root="../">
+                        <!-- Rendered by main.js with Font Awesome icons -->
+                    </div>
+
+                    <a href="packages.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold text-xs rounded-xl shadow-md transition">
+                        <span>View Deals</span>
+                    </a>
+
+                    <!-- Mobile Hamburger -->
+                    <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white px-4 pt-3 pb-6 space-y-2">
+            <a href="../index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Home</a>
+            <a href="destinations/dest.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Destinations</a>
+            <a href="packages.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Packages</a>
+            <a href="booking.html" class="block px-3 py-2 rounded-lg text-base font-bold text-indigo-600 bg-indigo-50">Trip Planner</a>
+            <a href="gallery.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Gallery</a>
+            <a href="blog.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Blog</a>
+            <a href="faq.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">FAQs</a>
+            <a href="about.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">About Us</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Header Hero -->
+    <header class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white py-14 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-indigo-500/30 text-indigo-200 text-xs uppercase font-bold tracking-wider mb-3">
+                Live Cost Estimator & Itinerary Builder
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-black">Plan & Book Your Custom Adventure</h1>
+            <p class="mt-3 text-indigo-200 text-base max-w-xl mx-auto">
+                Customize your dream itinerary in 3 simple steps with real-time price estimation, transparent costs, and instant voucher generation.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Booking Wizard Form (Col 7) -->
+            <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100">
+                <form id="trip-planner-form" onsubmit="handleTripBooking(event)">
+                    
+                    <!-- Step 1: Destination -->
+                    <div class="mb-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center text-sm shadow">1</span>
+                            <h2 class="text-lg font-bold text-gray-900">Choose Destination & Travel Dates</h2>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Destination</label>
+                                <select id="dest-select" onchange="calculatePrice()" class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white font-medium text-gray-800">
+                                    <optgroup label="Europe">
+                                        <option value="Paris, France" data-base="1400">Paris, France (City of Romance)</option>
+                                        <option value="Rome, Italy" data-base="1350">Rome, Italy (Ancient Empire)</option>
+                                        <option value="Venice, Italy" data-base="1450">Venice, Italy (Grand Canals)</option>
+                                        <option value="Santorini, Greece" data-base="1500">Santorini, Greece (Cliffside Views)</option>
+                                        <option value="London, England" data-base="1480">London, England (Royal Heritage)</option>
+                                    </optgroup>
+                                    <optgroup label="Asia">
+                                        <option value="Kyoto, Japan" data-base="1600" selected>Kyoto, Japan (Temples & Cherry Blossoms)</option>
+                                        <option value="Bali, Indonesia" data-base="1100">Bali, Indonesia (Tropical Paradise)</option>
+                                        <option value="Bangkok, Thailand" data-base="950">Bangkok, Thailand (Vibrant Culture & Food)</option>
+                                        <option value="Maldives" data-base="2200">Maldives (Overwater Luxury Bungalows)</option>
+                                    </optgroup>
+                                    <optgroup label="The Americas">
+                                        <option value="New York City, USA" data-base="1550">New York City, USA (The Empire City)</option>
+                                        <option value="Machu Picchu, Peru" data-base="1650">Machu Picchu, Peru (Inca Citadel)</option>
+                                        <option value="Rio de Janeiro, Brazil" data-base="1300">Rio de Janeiro, Brazil (Beaches & Samba)</option>
+                                    </optgroup>
+                                    <optgroup label="Africa & Oceania">
+                                        <option value="Cairo, Egypt" data-base="1250">Cairo, Egypt (Great Pyramids of Giza)</option>
+                                        <option value="Cape Town, South Africa" data-base="1700">Cape Town, South Africa (Safari & Ocean)</option>
+                                        <option value="Dubai, UAE" data-base="1600">Dubai, UAE (Modern Marvels & Desert)</option>
+                                        <option value="Sydney, Australia" data-base="1850">Sydney, Australia (Harbour & Reefs)</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Departure Date</label>
+                                    <input type="date" id="dept-date" onchange="calculatePrice()" required class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Return Date</label>
+                                    <input type="date" id="ret-date" onchange="calculatePrice()" required class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Party & Accommodation -->
+                    <div class="mb-8 pt-6 border-t border-gray-100">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center text-sm shadow">2</span>
+                            <h2 class="text-lg font-bold text-gray-900">Travelers & Accommodation Class</h2>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Adults (12+ yrs)</label>
+                                    <div class="flex items-center border border-gray-300 rounded-xl overflow-hidden">
+                                        <button type="button" onclick="adjustCount('adults', -1)" class="px-3 py-2 bg-gray-100 text-gray-600 font-bold hover:bg-gray-200">-</button>
+                                        <input type="number" id="count-adults" value="2" min="1" max="10" readonly class="w-full text-center font-bold text-sm bg-white focus:outline-none">
+                                        <button type="button" onclick="adjustCount('adults', 1)" class="px-3 py-2 bg-gray-100 text-gray-600 font-bold hover:bg-gray-200">+</button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Children (0-11 yrs)</label>
+                                    <div class="flex items-center border border-gray-300 rounded-xl overflow-hidden">
+                                        <button type="button" onclick="adjustCount('kids', -1)" class="px-3 py-2 bg-gray-100 text-gray-600 font-bold hover:bg-gray-200">-</button>
+                                        <input type="number" id="count-kids" value="0" min="0" max="6" readonly class="w-full text-center font-bold text-sm bg-white focus:outline-none">
+                                        <button type="button" onclick="adjustCount('kids', 1)" class="px-3 py-2 bg-gray-100 text-gray-600 font-bold hover:bg-gray-200">+</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Accommodation Level</label>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                    <label class="border-2 border-gray-200 rounded-xl p-3.5 cursor-pointer has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50/50 block transition">
+                                        <input type="radio" name="hotel-tier" value="30" onchange="calculatePrice()" class="hidden" checked>
+                                        <span class="font-bold block text-sm text-gray-800">Standard 3★</span>
+                                        <span class="text-xs text-gray-500">Cozy & Central</span>
+                                        <span class="text-[11px] font-bold text-indigo-600 block mt-1">Included</span>
+                                    </label>
+                                    <label class="border-2 border-gray-200 rounded-xl p-3.5 cursor-pointer has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50/50 block transition">
+                                        <input type="radio" name="hotel-tier" value="80" onchange="calculatePrice()" class="hidden">
+                                        <span class="font-bold block text-sm text-indigo-800">Boutique 4★</span>
+                                        <span class="text-xs text-gray-500">Prime View & Pool</span>
+                                        <span class="text-[11px] font-bold text-indigo-600 block mt-1">+$50/night</span>
+                                    </label>
+                                    <label class="border-2 border-gray-200 rounded-xl p-3.5 cursor-pointer has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50/50 block transition">
+                                        <input type="radio" name="hotel-tier" value="160" onchange="calculatePrice()" class="hidden">
+                                        <span class="font-bold block text-sm text-purple-800">Luxury 5★</span>
+                                        <span class="text-xs text-gray-500">VIP Suites & Spa</span>
+                                        <span class="text-[11px] font-bold text-indigo-600 block mt-1">+$130/night</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Add-on Perks & Contact Details -->
+                    <div class="mb-8 pt-6 border-t border-gray-100">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center text-sm shadow">3</span>
+                            <h2 class="text-lg font-bold text-gray-900">Add-ons & Passenger Details</h2>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Checkbox Add-ons -->
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl cursor-pointer hover:bg-gray-100 transition">
+                                    <input type="checkbox" id="addon-transfer" value="75" onchange="calculatePrice()" class="w-4 h-4 text-indigo-600 rounded">
+                                    <div class="flex-1 text-xs">
+                                        <span class="font-bold text-gray-800 block">Round-trip Private Airport Transfer</span>
+                                        <span class="text-gray-500">Chauffeured vehicle straight to your hotel</span>
+                                    </div>
+                                    <span class="text-xs font-bold text-indigo-600">+$75</span>
+                                </label>
+
+                                <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl cursor-pointer hover:bg-gray-100 transition">
+                                    <input type="checkbox" id="addon-insurance" value="45" onchange="calculatePrice()" checked class="w-4 h-4 text-indigo-600 rounded">
+                                    <div class="flex-1 text-xs">
+                                        <span class="font-bold text-gray-800 block">Worldwide Travel & Health Insurance</span>
+                                        <span class="text-gray-500">Medical emergencies, flight delay, lost baggage</span>
+                                    </div>
+                                    <span class="text-xs font-bold text-indigo-600">+$45/traveler</span>
+                                </label>
+
+                                <label class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl cursor-pointer hover:bg-gray-100 transition">
+                                    <input type="checkbox" id="addon-guide" value="180" onchange="calculatePrice()" class="w-4 h-4 text-indigo-600 rounded">
+                                    <div class="flex-1 text-xs">
+                                        <span class="font-bold text-gray-800 block">Dedicated English-speaking Private Guide (Full Day)</span>
+                                        <span class="text-gray-500">Skip-the-line VIP entries & tailored walking exploration</span>
+                                    </div>
+                                    <span class="text-xs font-bold text-indigo-600">+$180</span>
+                                </label>
+                            </div>
+
+                            <!-- Lead Traveler Info -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Primary Traveler Name</label>
+                                    <input type="text" id="lead-name" required placeholder="Alex Morgan" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Contact Email</label>
+                                    <input type="email" id="lead-email" required placeholder="alex@example.com" class="w-full border border-gray-300 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700 hover:from-indigo-700 hover:to-blue-700 text-white font-extrabold text-base rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Confirm & Generate Instant Travel Voucher</span>
+                    </button>
+                    <p class="text-[11px] text-gray-400 text-center mt-3">Lock in today's best rates with $0 immediate charge • 100% Refundable</p>
+                </form>
+            </div>
+
+            <!-- Price Breakdown Summary Sidebar (Col 5) -->
+            <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100 sticky top-28">
+                <h3 class="text-xl font-black text-gray-900 mb-6 flex items-center justify-between">
+                    <span>Trip Summary</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full">Guaranteed Price</span>
+                </h3>
+
+                <div class="space-y-4 text-sm pb-6 border-b border-gray-100">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-500">Destination</span>
+                        <span id="summary-dest" class="font-bold text-gray-900">Kyoto, Japan</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-500">Duration</span>
+                        <span id="summary-duration" class="font-bold text-gray-900">7 Nights</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-500">Party Size</span>
+                        <span id="summary-travelers" class="font-bold text-gray-900">2 Adults, 0 Children</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-500">Accommodation Tier</span>
+                        <span id="summary-tier" class="font-bold text-indigo-700">Standard 3★</span>
+                    </div>
+                </div>
+
+                <!-- Price Calculations -->
+                <div class="space-y-2 py-4 border-b border-gray-100 text-xs">
+                    <div class="flex justify-between text-gray-600">
+                        <span>Base Package Rate:</span>
+                        <span id="price-base" class="font-semibold text-gray-800">$3,200</span>
+                    </div>
+                    <div class="flex justify-between text-gray-600">
+                        <span>Room Class Upgrade:</span>
+                        <span id="price-hotel" class="font-semibold text-gray-800">$0</span>
+                    </div>
+                    <div class="flex justify-between text-gray-600">
+                        <span>Optional Excursions & Perks:</span>
+                        <span id="price-addons" class="font-semibold text-gray-800">$90</span>
+                    </div>
+                    <div class="flex justify-between text-gray-600">
+                        <span>Taxes & Tourism Fees (6%):</span>
+                        <span id="price-tax" class="font-semibold text-gray-800">$197</span>
+                    </div>
+                    <div id="coupon-row" class="hidden flex justify-between text-emerald-600 font-bold">
+                        <span>Promo Code Discount (15%):</span>
+                        <span id="price-discount">-$523</span>
+                    </div>
+                </div>
+
+                <!-- Coupon Code Input -->
+                <div class="pt-4 pb-2">
+                    <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Coupon / Referral Code</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="coupon-input" placeholder="e.g. VOYAGE15" class="flex-1 uppercase text-xs border border-gray-300 rounded-xl px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                        <button type="button" onclick="applyPromoCode()" class="px-4 py-2 bg-gray-900 hover:bg-black text-white text-xs font-bold rounded-xl transition">Apply</button>
+                    </div>
+                    <p class="text-[10px] text-gray-400 mt-1">Hint: Try using <strong class="text-indigo-600 font-mono">VOYAGE15</strong> for 15% discount</p>
+                </div>
+
+                <!-- Grand Total -->
+                <div class="mt-4 pt-4 border-t border-gray-200 flex items-baseline justify-between">
+                    <div>
+                        <span class="text-xs uppercase font-bold text-gray-500 block">Total Est. Price</span>
+                        <span class="text-[11px] text-gray-400">All travelers included</span>
+                    </div>
+                    <div class="text-right">
+                        <span id="price-total" class="text-3xl font-black text-indigo-700">$3,487</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Simulated Voucher Modal -->
+        <div id="voucher-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+            <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto animate-fade-in border-4 border-indigo-50">
+                <button onclick="closeVoucher()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold">&times;</button>
+                
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-3 shadow">
+                        <i class="fa-solid fa-circle-check text-3xl"></i>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest font-black text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Booking Voucher Issued</span>
+                    <h3 class="text-2xl font-black text-gray-900 mt-2">Pack Your Bags!</h3>
+                    <p class="text-xs text-gray-500 mt-1">Your reservation has been confirmed with zero cancellation fees.</p>
+                </div>
+
+                <!-- Boarding Pass Style Card -->
+                <div class="bg-gradient-to-br from-indigo-900 to-blue-900 text-white rounded-2xl p-6 shadow-inner relative overflow-hidden mb-6">
+                    <div class="flex justify-between items-start border-b border-indigo-700 pb-4 mb-4">
+                        <div>
+                            <span class="text-[10px] text-indigo-300 uppercase font-bold">Voyage Vista Reservation</span>
+                            <h4 id="v-dest" class="text-xl font-black text-white">Kyoto, Japan</h4>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] text-indigo-300 uppercase font-bold">Booking Reference</span>
+                            <p id="v-code" class="text-lg font-mono font-bold text-amber-400">VV-849201</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <span class="text-indigo-300 block text-[10px]">Lead Passenger</span>
+                            <span id="v-name" class="font-bold text-sm">Alex Morgan</span>
+                        </div>
+                        <div>
+                            <span class="text-indigo-300 block text-[10px]">Dates</span>
+                            <span id="v-dates" class="font-bold text-sm">Nov 12 - Nov 19</span>
+                        </div>
+                        <div>
+                            <span class="text-indigo-300 block text-[10px]">Travelers</span>
+                            <span id="v-travelers" class="font-bold">2 Persons</span>
+                        </div>
+                        <div>
+                            <span class="text-indigo-300 block text-[10px]">Grand Total</span>
+                            <span id="v-total" class="font-bold text-amber-400 text-sm">$3,487</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-3">
+                    <button onclick="window.print()" class="flex-1 py-3 text-sm font-bold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-xl transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-print"></i>
+                        <span>Print Voucher</span>
+                    </button>
+                    <button onclick="closeVoucher()" class="flex-1 py-3 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow transition">
+                        Done
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center">
+                        <i class="fa-solid fa-plane-departure text-sm"></i>
+                    </div>
+                    <span class="text-xl font-bold text-white">Voyage Vista</span>
+                </div>
+                <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                    Crafting extraordinary journeys to breathtaking destinations around the globe with seamless luxury and heartfelt hospitality.
+                </p>
+                <div class="text-xs text-gray-400 space-y-1">
+                    <p><strong class="text-gray-300">Toll Free:</strong> +1-800-700-7689</p>
+                    <p><strong class="text-gray-300">Email:</strong> support@voyagevista.com</p>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Navigation</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
+                    <li><a href="destinations/dest.html" class="hover:text-white transition">All Destinations</a></li>
+                    <li><a href="packages.html" class="hover:text-white transition">Holiday Packages</a></li>
+                    <li><a href="booking.html" class="text-indigo-400 font-semibold hover:text-white transition">Trip Planner Wizard</a></li>
+                    <li><a href="gallery.html" class="hover:text-white transition">Photo Gallery</a></li>
+                    <li><a href="blog.html" class="hover:text-white transition">Travel Blog & Guides</a></li>
+                    <li><a href="about.html" class="hover:text-white transition">About Our Company</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition">Contact & Support</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Explore Regions</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="destinations/europe.html" class="hover:text-white transition">Europe (Paris, Rome, Santorini)</a></li>
+                    <li><a href="destinations/asia.html" class="hover:text-white transition">Asia (Kyoto, Bali, Bangkok)</a></li>
+                    <li><a href="destinations/america.html" class="hover:text-white transition">Americas (NYC, Machu Picchu, Rio)</a></li>
+                    <li><a href="destinations/africa.html" class="hover:text-white transition">Africa (Cairo, Cape Town, Dubai)</a></li>
+                    <li><a href="destinations/oceania.html" class="hover:text-white transition">Oceania (Sydney, New Zealand)</a></li>
+                    <li><a href="faq.html" class="hover:text-white transition">Travel FAQs & Visa Info</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Get Special Deals</h4>
+                <p class="text-xs text-gray-400 mb-4">Subscribe for exclusive flash sales, secret escapes, and 15% off coupon.</p>
+                <form class="newsletter-form space-y-2">
+                    <input type="email" required placeholder="Enter your email" class="w-full px-4 py-2.5 rounded-xl bg-gray-800 border border-gray-700 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500">
+                    <button type="submit" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl shadow transition">Subscribe Now</button>
+                </form>
+
+                <div class="flex gap-4 mt-6">
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-indigo-600 text-gray-400 hover:text-white transition flex items-center justify-center text-sm" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-pink-600 text-gray-400 hover:text-white transition flex items-center justify-center text-sm" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-black text-gray-400 hover:text-white transition flex items-center justify-center text-sm" aria-label="Twitter">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-red-600 text-gray-400 hover:text-white transition flex items-center justify-center text-sm" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+            <p>&copy; 2026 Voyage Vista Co. All rights reserved.</p>
+            <div class="flex gap-4 mt-4 sm:mt-0">
+                <a href="ToS_and_Privacy.html" class="hover:text-gray-300">Terms of Service</a>
+                <a href="ToS_and_Privacy.html" class="hover:text-gray-300">Privacy Policy</a>
+                <a href="faq.html" class="hover:text-gray-300">Help Center</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared JS -->
+    <script src="../js/main.js"></script>
+
+    <script>
+        let discountRate = 0;
+
+        function adjustCount(type, delta) {
+            const input = document.getElementById(type === 'adults' ? 'count-adults' : 'count-kids');
+            let val = parseInt(input.value) + delta;
+            const min = type === 'adults' ? 1 : 0;
+            const max = type === 'adults' ? 10 : 6;
+            if (val >= min && val <= max) {
+                input.value = val;
+                calculatePrice();
+            }
+        }
+
+        function calculatePrice() {
+            const destSelect = document.getElementById('dest-select');
+            const selectedOption = destSelect.options[destSelect.selectedIndex];
+            const baseRatePerPerson = parseInt(selectedOption.getAttribute('data-base') || '1200');
+            const destName = selectedOption.value;
+
+            // Dates
+            const d1Val = document.getElementById('dept-date').value;
+            const d2Val = document.getElementById('ret-date').value;
+            let nights = 7;
+            if (d1Val && d2Val) {
+                const diffTime = Math.abs(new Date(d2Val) - new Date(d1Val));
+                nights = Math.max(1, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
+            }
+
+            const adults = parseInt(document.getElementById('count-adults').value) || 1;
+            const kids = parseInt(document.getElementById('count-kids').value) || 0;
+            const totalTravelers = adults + kids;
+
+            // Hotel upgrade
+            const hotelTier = document.querySelector('input[name="hotel-tier"]:checked').value;
+            let tierName = "Standard 3★";
+            let hotelExtra = 0;
+            if (hotelTier === '80') {
+                tierName = "Boutique 4★";
+                hotelExtra = 50 * nights;
+            } else if (hotelTier === '160') {
+                tierName = "Luxury 5★";
+                hotelExtra = 130 * nights;
+            }
+
+            // Add-ons
+            let addonsTotal = 0;
+            if (document.getElementById('addon-transfer').checked) addonsTotal += 75;
+            if (document.getElementById('addon-insurance').checked) addonsTotal += (45 * totalTravelers);
+            if (document.getElementById('addon-guide').checked) addonsTotal += 180;
+
+            const baseTotal = (baseRatePerPerson * adults) + (baseRatePerPerson * 0.6 * kids);
+            const subtotal = baseTotal + hotelExtra + addonsTotal;
+            const tax = Math.round(subtotal * 0.06);
+            let discountAmount = 0;
+            if (discountRate > 0) {
+                discountAmount = Math.round(subtotal * discountRate);
+                document.getElementById('coupon-row').classList.remove('hidden');
+                document.getElementById('price-discount').textContent = `-$${discountAmount.toLocaleString()}`;
+            } else {
+                document.getElementById('coupon-row').classList.add('hidden');
+            }
+
+            const grandTotal = subtotal + tax - discountAmount;
+
+            // Update UI Sidebar
+            document.getElementById('summary-dest').textContent = destName;
+            document.getElementById('summary-duration').textContent = `${nights} Nights`;
+            document.getElementById('summary-travelers').textContent = `${adults} Adult${adults>1?'s':''}${kids > 0 ? `, ${kids} Child${kids>1?'ren':''}` : ''}`;
+            document.getElementById('summary-tier').textContent = tierName;
+
+            document.getElementById('price-base').textContent = `$${baseTotal.toLocaleString()}`;
+            document.getElementById('price-hotel').textContent = `$${hotelExtra.toLocaleString()}`;
+            document.getElementById('price-addons').textContent = `$${addonsTotal.toLocaleString()}`;
+            document.getElementById('price-tax').textContent = `$${tax.toLocaleString()}`;
+            document.getElementById('price-total').textContent = `$${grandTotal.toLocaleString()}`;
+        }
+
+        function applyPromoCode() {
+            const code = document.getElementById('coupon-input').value.trim().toUpperCase();
+            if (code === 'VOYAGE15' || code === 'SAVE15' || code === 'DISCOUNT15') {
+                discountRate = 0.15;
+                calculatePrice();
+                showToast('Promo code VOYAGE15 applied! 15% discount saved.', 'success');
+            } else if (code) {
+                showToast('Invalid promo code. Try VOYAGE15.', 'error');
+            }
+        }
+
+        function handleTripBooking(e) {
+            e.preventDefault();
+            const name = document.getElementById('lead-name').value;
+            const dest = document.getElementById('summary-dest').textContent;
+            const dates = `${document.getElementById('dept-date').value} to ${document.getElementById('ret-date').value}`;
+            const travelers = document.getElementById('summary-travelers').textContent;
+            const total = document.getElementById('price-total').textContent;
+            const code = 'VV-' + Math.floor(100000 + Math.random() * 900000);
+
+            document.getElementById('v-dest').textContent = dest;
+            document.getElementById('v-code').textContent = code;
+            document.getElementById('v-name').textContent = name;
+            document.getElementById('v-dates').textContent = dates;
+            document.getElementById('v-travelers').textContent = travelers;
+            document.getElementById('v-total').textContent = total;
+
+            document.getElementById('voucher-modal').classList.remove('hidden');
+            showToast(`Trip booked successfully for ${name}!`, 'success');
+        }
+
+        function closeVoucher() {
+            document.getElementById('voucher-modal').classList.add('hidden');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const now = new Date();
+            const d1 = new Date();
+            d1.setDate(now.getDate() + 14);
+            const d2 = new Date();
+            d2.setDate(now.getDate() + 21);
+
+            document.getElementById('dept-date').value = d1.toISOString().split('T')[0];
+            document.getElementById('ret-date').value = d2.toISOString().split('T')[0];
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const destParam = urlParams.get('dest');
+            if (destParam) {
+                const select = document.getElementById('dest-select');
+                for (let i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value.toLowerCase().includes(destParam.toLowerCase()) || destParam.toLowerCase().includes(select.options[i].value.toLowerCase())) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            const user = VV_AUTH.getUser();
+            if (user) {
+                if (user.name) document.getElementById('lead-name').value = user.name;
+                if (user.email) document.getElementById('lead-email').value = user.email;
+            }
+
+            calculatePrice();
+        });
+    </script>
+</body>
+
+</html>
