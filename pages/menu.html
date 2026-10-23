@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savoria - Full Gourmet Food Menu & Online Ordering</title>
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Compiled Tailwind CSS -->
+  <link rel="stylesheet" href="../output.css">
+</head>
+
+<body class="bg-stone-50 text-stone-800 flex flex-col min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-stone-200 shadow-sm w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="../index.html" class="flex items-center gap-2.5 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition transform">
+            <i class="fa-solid fa-utensils text-lg"></i>
+          </div>
+          <div>
+            <span class="text-2xl font-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Savoria</span>
+            <span class="hidden sm:block text-[10px] uppercase font-extrabold tracking-widest text-stone-400 -mt-1">Gourmet Delivery</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden lg:flex items-center space-x-1 font-semibold text-stone-600 text-sm">
+          <a href="../index.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Home</a>
+          <a href="menu.html" class="px-3.5 py-2 rounded-xl text-amber-600 bg-amber-50 font-bold transition">Full Menu</a>
+          <a href="restaurants.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Kitchens & Chefs</a>
+          <a href="order-tracking.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Track Order</a>
+          <a href="about.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">About Us</a>
+          <a href="faq.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">FAQs</a>
+          <a href="contact.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Contact</a>
+        </div>
+
+        <!-- Right Actions -->
+        <div class="flex items-center gap-3">
+          <div class="auth-nav-container" data-root="../"></div>
+
+          <!-- Cart Button with Counter Badge -->
+          <a href="cart.html" class="relative px-3.5 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-xl transition flex items-center gap-2 font-bold text-xs shadow-sm">
+            <i class="fa-solid fa-bag-shopping text-base text-amber-600"></i>
+            <span class="hidden sm:inline">Cart</span>
+            <span class="cart-count-badge hidden absolute -top-1.5 -right-1.5 bg-rose-600 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+          </a>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-xl text-stone-600 hover:bg-stone-100 focus:outline-none">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-stone-100 bg-white px-4 pt-3 pb-6 space-y-2">
+      <a href="../index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Home</a>
+      <a href="menu.html" class="block px-3 py-2 rounded-lg text-base font-bold text-amber-600 bg-amber-50">Full Menu</a>
+      <a href="restaurants.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Kitchens & Chefs</a>
+      <a href="order-tracking.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Track Order</a>
+      <a href="cart.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Your Cart</a>
+      <a href="about.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">About Us</a>
+      <a href="faq.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">FAQs</a>
+      <a href="contact.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Header Banner -->
+  <header class="bg-gradient-to-r from-stone-900 via-stone-950 to-amber-950 text-white py-14 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-amber-500/20 text-amber-300 text-xs uppercase font-extrabold tracking-wider mb-3 border border-amber-500/30">
+        Curated Master Kitchens
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-black">Our Artisan Culinary Menu</h1>
+      <p class="mt-3 text-stone-300 text-sm max-w-xl mx-auto">
+        Explore handcrafted meals prepared with non-GMO organic produce, ethically-sourced meats, and delivered fresh to your door.
+      </p>
+
+      <!-- Fast Search Bar -->
+      <div class="mt-8 max-w-xl mx-auto relative">
+        <input type="text" id="menu-search-input" oninput="applyFilters()" placeholder="Search dishes, ingredients, or cuisines..." class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-white text-stone-900 placeholder-stone-400 focus:outline-none focus:ring-4 focus:ring-amber-500/40 shadow-2xl text-sm font-medium">
+        <i class="fa-solid fa-magnifying-glass text-stone-400 absolute left-4 top-4"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filter & Controls Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-20">
+    <div class="bg-white p-4 sm:p-6 rounded-3xl shadow-xl border border-stone-200 space-y-4">
+
+      <!-- Category Filter Pills -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="category-pills">
+        <button onclick="setCategory('All')" class="cat-pill active px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 text-stone-950 whitespace-nowrap shadow-sm transition" data-cat="All">All Dishes (18)</button>
+        <button onclick="setCategory('Italian')" class="cat-pill px-4 py-2 rounded-xl text-xs font-bold bg-stone-100 hover:bg-stone-200 text-stone-700 whitespace-nowrap transition" data-cat="Italian">🍕 Italian & Pizzas</button>
+        <button onclick="setCategory('Japanese')" class="cat-pill px-4 py-2 rounded-xl text-xs font-bold bg-stone-100 hover:bg-stone-200 text-stone-700 whitespace-nowrap transition" data-cat="Japanese">🍣 Japanese & Sushi</button>
+        <button onclick="setCategory('Burgers')" class="cat-pill px-4 py-2 rounded-xl text-xs font-bold bg-stone-100 hover:bg-stone-200 text-stone-700 whitespace-nowrap transition" data-cat="Burgers">🍔 Burgers & Smokehouse</button>
+        <button onclick="setCategory('Mexican')" class="cat-pill px-4 py-2 rounded-xl text-xs font-bold bg-stone-100 hover:bg-stone-200 text-stone-700 whitespace-nowrap transition" data-cat="Mexican">🌮 Mexican & Tacos</button>
+        <button onclick="setCategory('Healthy')" class="cat-pill px-4 py-2 rounded-xl text-xs font-bold bg-stone-100 hover:bg-stone-200 text-stone-700 whitespace-nowrap transition" data-cat="Healthy">🥗 Healthy & Vegan</button>
+        <button onclick="setCategory('Desserts')" class="cat-pill px-4 py-2 rounded-xl text-xs font-bold bg-stone-100 hover:bg-stone-200 text-stone-700 whitespace-nowrap transition" data-cat="Desserts">🍨 Sweet Desserts</button>
+        <button onclick="setCategory('Drinks')" class="cat-pill px-4 py-2 rounded-xl text-xs font-bold bg-stone-100 hover:bg-stone-200 text-stone-700 whitespace-nowrap transition" data-cat="Drinks">🥤 Artisan Drinks</button>
+      </div>
+
+      <!-- Secondary Controls: Dietary & Sorting -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-stone-100">
+        <!-- Dietary Filter -->
+        <div class="flex items-center gap-2">
+          <label class="text-xs font-bold text-stone-500 uppercase">Dietary:</label>
+          <select id="dietary-filter" onchange="applyFilters()" class="border border-stone-200 rounded-xl px-3 py-1.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500 bg-stone-50">
+            <option value="All">All Diets</option>
+            <option value="Vegetarian">Vegetarian / Vegan</option>
+            <option value="Spicy">Spicy Only 🌶️</option>
+            <option value="Chef">Chef's Special ⭐</option>
+          </select>
+        </div>
+
+        <!-- Sorting -->
+        <div class="flex items-center gap-2">
+          <label class="text-xs font-bold text-stone-500 uppercase">Sort by:</label>
+          <select id="sort-filter" onchange="applyFilters()" class="border border-stone-200 rounded-xl px-3 py-1.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500 bg-stone-50">
+            <option value="popular">Most Popular</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Dishes Catalog Grid -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full">
+    <div id="dishes-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Empty Results -->
+    <div id="no-dishes" class="hidden text-center py-16">
+      <div class="w-16 h-16 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-3xl mx-auto mb-4">
+        <i class="fa-solid fa-utensils"></i>
+      </div>
+      <h3 class="text-xl font-bold text-stone-800">No dishes match your craving</h3>
+      <p class="text-xs text-stone-500 mt-1">Try clearing your search query or switching to another cuisine category.</p>
+      <button onclick="resetFilters()" class="mt-4 px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold text-xs rounded-xl shadow transition">
+        Reset All Filters
+      </button>
+    </div>
+  </main>
+
+  <!-- Dish Detailed Modal -->
+  <div id="dish-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl border border-stone-200 transform transition">
+      <div class="relative h-64 overflow-hidden">
+        <img id="modal-img" src="" alt="" class="w-full h-full object-cover">
+        <button onclick="closeDishModal()" class="absolute top-4 right-4 bg-stone-900/70 hover:bg-stone-900 text-white w-9 h-9 rounded-full flex items-center justify-center text-lg focus:outline-none transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <span id="modal-category" class="absolute bottom-4 left-4 bg-amber-500 text-stone-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow"></span>
+      </div>
+
+      <div class="p-6 sm:p-8 space-y-4">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 id="modal-title" class="text-2xl font-black text-stone-900"></h3>
+            <p id="modal-restaurant" class="text-xs text-amber-600 font-bold mt-0.5"></p>
+          </div>
+          <span id="modal-price" class="text-2xl font-black text-amber-600"></span>
+        </div>
+
+        <p id="modal-desc" class="text-xs text-stone-600 leading-relaxed"></p>
+
+        <!-- Nutrition / Highlights -->
+        <div class="grid grid-cols-3 gap-3 p-3 bg-stone-50 rounded-2xl border border-stone-200 text-center text-xs">
+          <div>
+            <span class="text-stone-400 block text-[10px] uppercase font-bold">Calories</span>
+            <span id="modal-cal" class="font-bold text-stone-800">540 kcal</span>
+          </div>
+          <div>
+            <span class="text-stone-400 block text-[10px] uppercase font-bold">Prep Time</span>
+            <span id="modal-prep" class="font-bold text-stone-800">18 min</span>
+          </div>
+          <div>
+            <span class="text-stone-400 block text-[10px] uppercase font-bold">Rating</span>
+            <span id="modal-rating" class="font-bold text-amber-600">⭐ 4.9</span>
+          </div>
+        </div>
+
+        <!-- Special Request Input -->
+        <div>
+          <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Kitchen Notes / Preferences</label>
+          <input type="text" id="modal-notes" placeholder="e.g. Extra sauce, no onions, dressing on side..." class="w-full border border-stone-300 rounded-xl px-4 py-2 text-xs focus:ring-2 focus:ring-amber-500 focus:outline-none bg-stone-50">
+        </div>
+
+        <!-- Quantity & Add to Cart -->
+        <div class="flex items-center gap-4 pt-4 border-t border-stone-100">
+          <div class="flex items-center border border-stone-300 rounded-xl bg-stone-50 px-2 py-1">
+            <button onclick="changeModalQty(-1)" class="w-8 h-8 rounded-lg text-stone-700 hover:bg-stone-200 font-black text-sm flex items-center justify-center">-</button>
+            <span id="modal-qty" class="w-8 text-center font-bold text-sm">1</span>
+            <button onclick="changeModalQty(1)" class="w-8 h-8 rounded-lg text-stone-700 hover:bg-stone-200 font-black text-sm flex items-center justify-center">+</button>
+          </div>
+
+          <button id="modal-add-btn" class="flex-1 py-3 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-cart-plus"></i>
+            <span>Add to Cart</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-stone-900 text-stone-300 pt-16 pb-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-amber-500 text-stone-950 flex items-center justify-center font-bold">
+            <i class="fa-solid fa-utensils text-sm"></i>
+          </div>
+          <span class="text-xl font-bold text-white">Savoria</span>
+        </div>
+        <p class="text-sm text-stone-400 leading-relaxed mb-6">
+          Curating exceptional culinary feasts from premier independent kitchens and delivering them piping hot with white-glove speed.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Navigation</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
+          <li><a href="menu.html" class="text-amber-400 font-bold hover:text-white transition">Full Gourmet Menu</a></li>
+          <li><a href="restaurants.html" class="hover:text-white transition">Kitchen Partners</a></li>
+          <li><a href="order-tracking.html" class="hover:text-white transition">Live Order Tracking</a></li>
+          <li><a href="cart.html" class="hover:text-white transition">View Your Cart</a></li>
+          <li><a href="about.html" class="hover:text-white transition">About Our Mission</a></li>
+          <li><a href="faq.html" class="hover:text-white transition">Delivery & FAQs</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">Contact & Help</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Cuisines Offered</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="menu.html?cat=Italian" class="hover:text-white transition">Wood-Fired Pizza & Pasta</a></li>
+          <li><a href="menu.html?cat=Japanese" class="hover:text-white transition">Sushi Rolls, Sashimi & Ramen</a></li>
+          <li><a href="menu.html?cat=Burgers" class="hover:text-white transition">Wagyu Burgers & Smokehouse BBQ</a></li>
+          <li><a href="menu.html?cat=Mexican" class="hover:text-white transition">Jalisco Birria Tacos & Quesadillas</a></li>
+          <li><a href="menu.html?cat=Healthy" class="hover:text-white transition">Organic Vegan Superfood Bowls</a></li>
+          <li><a href="menu.html?cat=Desserts" class="hover:text-white transition">Artisanal Gelato & Lava Cakes</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Need Immediate Help?</h4>
+        <p class="text-xs text-stone-400 mb-2">Our customer concierge is available 24/7 for order updates or dietary inquiries.</p>
+        <p class="text-sm font-bold text-white mb-4">+1 (800) 929-FOOD</p>
+        <a href="cart.html" class="block w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold text-xs rounded-xl shadow transition text-center">
+          Proceed to Checkout &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500">
+      <p>&copy; 2026 Savoria Gourmet Delivery Co. All rights reserved.</p>
+      <div class="flex gap-4 mt-4 sm:mt-0">
+        <a href="ToS_and_Privacy.html" class="hover:text-stone-300">Terms of Service</a>
+        <a href="ToS_and_Privacy.html" class="hover:text-stone-300">Privacy Policy</a>
+        <a href="faq.html" class="hover:text-stone-300">Help Desk</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared JS -->
+  <script src="../js/main.js"></script>
+
+  <script>
+    // 18 Comprehensive Gourmet Dishes Dataset
+    const ALL_DISHES = [
+      {
+        id: 1,
+        name: "Double Smashed Wagyu Burger",
+        category: "Burgers",
+        restaurant: "The Smokehouse BBQ",
+        price: 16.99,
+        rating: 4.9,
+        reviews: 420,
+        prepTime: "20 min",
+        calories: "820 kcal",
+        isSpicy: false,
+        isVegetarian: false,
+        isChef: true,
+        desc: "Two dry-aged Australian Wagyu patties, smoked gouda, caramelized shallots, house truffle aioli on a toasted brioche bun.",
+        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 2,
+        name: "Dragon Flame Salmon Roll (8pc)",
+        category: "Japanese",
+        restaurant: "Tokyo Drift Bar",
+        price: 19.50,
+        rating: 5.0,
+        reviews: 310,
+        prepTime: "25 min",
+        calories: "480 kcal",
+        isSpicy: true,
+        isVegetarian: false,
+        isChef: true,
+        desc: "Torched Atlantic salmon belly, avocado, cucumber, unagi reduction glaze, spicy kewpie mayo, and crispy tempura flakes.",
+        image: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 3,
+        name: "Truffle Wild Mushroom Fettuccine",
+        category: "Italian",
+        restaurant: "Trattoria Bella",
+        price: 17.80,
+        rating: 4.8,
+        reviews: 280,
+        prepTime: "22 min",
+        calories: "620 kcal",
+        isSpicy: false,
+        isVegetarian: true,
+        isChef: true,
+        desc: "Fresh egg pasta tossed with porcini and cremini mushrooms, 24-month aged Parmigiano Reggiano, and white truffle butter.",
+        image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 4,
+        name: "Jalisco Birria Quesa-Tacos (3pc)",
+        category: "Mexican",
+        restaurant: "Cantina Fuego",
+        price: 15.20,
+        rating: 4.9,
+        reviews: 530,
+        prepTime: "18 min",
+        calories: "710 kcal",
+        isSpicy: true,
+        isVegetarian: false,
+        isChef: true,
+        desc: "Crispy corn tortillas dipped in spiced chili broth, filled with shredded braised beef, melted Oaxaca cheese, cilantro, and warm consommé dip.",
+        image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 5,
+        name: "Superfood Rainbow Crunch Bowl",
+        category: "Healthy",
+        restaurant: "The Green Bowl Co.",
+        price: 13.90,
+        rating: 4.7,
+        reviews: 190,
+        prepTime: "15 min",
+        calories: "410 kcal",
+        isSpicy: false,
+        isVegetarian: true,
+        isChef: false,
+        desc: "Organic tri-color quinoa, Hass avocado, edamame, pickled purple cabbage, roasted sweet potatoes, and creamy sesame ginger tahini.",
+        image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 6,
+        name: "Belgian Warm Molten Lava Cake",
+        category: "Desserts",
+        restaurant: "Dolce & Crema",
+        price: 10.50,
+        rating: 5.0,
+        reviews: 610,
+        prepTime: "15 min",
+        calories: "520 kcal",
+        isSpicy: false,
+        isVegetarian: true,
+        isChef: true,
+        desc: "Rich 72% dark Valrhona chocolate center with a molten core, accompanied by Madagascar vanilla bean gelato and crushed hazelnuts.",
+        image: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 7,
+        name: "Truffle Burrata Margherita Pizza",
+        category: "Italian",
+        restaurant: "Naples Wood-Fired",
+        price: 18.50,
+        rating: 4.9,
+        reviews: 740,
+        prepTime: "20 min",
+        calories: "780 kcal",
+        isSpicy: false,
+        isVegetarian: true,
+        isChef: true,
+        desc: "San Marzano D.O.P. tomatoes, whole fresh buffalo burrata sphere, fresh basil, extra virgin olive oil, and shaved black truffle.",
+        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 8,
+        name: "Hokkaido Tonkotsu Ramen",
+        category: "Japanese",
+        restaurant: "Tokyo Drift Bar",
+        price: 16.50,
+        rating: 4.8,
+        reviews: 390,
+        prepTime: "20 min",
+        calories: "690 kcal",
+        isSpicy: false,
+        isVegetarian: false,
+        isChef: true,
+        desc: "24-hour rich pork bone broth, tender slow-cooked chashu pork belly, marinated ramen egg, menma bamboo shoots, nori, and spring onions.",
+        image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 9,
+        name: "Nashville Hot Crispy Chicken Burger",
+        category: "Burgers",
+        restaurant: "The Smokehouse BBQ",
+        price: 15.50,
+        rating: 4.9,
+        reviews: 470,
+        prepTime: "18 min",
+        calories: "760 kcal",
+        isSpicy: true,
+        isVegetarian: false,
+        isChef: false,
+        desc: "Buttermilk fried chicken breast dredged in fiery cayenne oil, dill pickles, cool slaw, and smoked paprika ranch on brioche.",
+        image: "https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 10,
+        name: "Loaded Carne Asada Guacamole Burrito",
+        category: "Mexican",
+        restaurant: "Cantina Fuego",
+        price: 14.80,
+        rating: 4.8,
+        reviews: 320,
+        prepTime: "15 min",
+        calories: "890 kcal",
+        isSpicy: true,
+        isVegetarian: false,
+        isChef: false,
+        desc: "Charred marinated flank steak, fresh lime guacamole, cilantro lime rice, black beans, pico de gallo, and chipotle crema wrapped in a warm flour tortilla.",
+        image: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 11,
+        name: "Hawaiian Ahi Tuna Poke Bowl",
+        category: "Healthy",
+        restaurant: "The Green Bowl Co.",
+        price: 16.80,
+        rating: 4.9,
+        reviews: 240,
+        prepTime: "12 min",
+        calories: "460 kcal",
+        isSpicy: false,
+        isVegetarian: false,
+        isChef: true,
+        desc: "Sashimi-grade yellowfin tuna tossed in tamari sesame ponzu, mango cubes, cucumber, avocado, wakame seaweed salad over seasoned brown sushi rice.",
+        image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 12,
+        name: "Authentic Venetian Tiramisu",
+        category: "Desserts",
+        restaurant: "Dolce & Crema",
+        price: 9.80,
+        rating: 4.9,
+        reviews: 380,
+        prepTime: "10 min",
+        calories: "440 kcal",
+        isSpicy: false,
+        isVegetarian: true,
+        isChef: false,
+        desc: "Espresso-soaked Savoiardi ladyfingers layered with fluffy mascarpone cream, dark cocoa dusting, and shaved amaretto chocolate.",
+        image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 13,
+        name: "Spicy Diavola Pepperoni Pizza",
+        category: "Italian",
+        restaurant: "Naples Wood-Fired",
+        price: 17.50,
+        rating: 4.8,
+        reviews: 410,
+        prepTime: "20 min",
+        calories: "840 kcal",
+        isSpicy: true,
+        isVegetarian: false,
+        isChef: false,
+        desc: "Spicy Calabrian salami, crushed red pepper flakes, smoked mozzarella, San Marzano tomato sauce, and hot honey drizzle.",
+        image: "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 14,
+        name: "Crispy Duck Bao Buns (3pc)",
+        category: "Japanese",
+        restaurant: "Tokyo Drift Bar",
+        price: 14.50,
+        rating: 4.9,
+        reviews: 290,
+        prepTime: "18 min",
+        calories: "510 kcal",
+        isSpicy: false,
+        isVegetarian: false,
+        isChef: true,
+        desc: "Steamed fluffy lotus leaf buns stuffed with five-spice roasted duck, hoisin glaze, scallions, and pickled cucumbers.",
+        image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 15,
+        name: "Truffle Parmesan Hand-Cut Fries",
+        category: "Burgers",
+        restaurant: "The Smokehouse BBQ",
+        price: 7.99,
+        rating: 4.9,
+        reviews: 820,
+        prepTime: "12 min",
+        calories: "380 kcal",
+        isSpicy: false,
+        isVegetarian: true,
+        isChef: false,
+        desc: "Crispy double-cooked Idaho russet fries tossed with Italian white truffle oil, grated Pecorino Romano, and fresh chopped parsley.",
+        image: "https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 16,
+        name: "Iced Passionfruit Mango Green Tea",
+        category: "Drinks",
+        restaurant: "Artisan Brews",
+        price: 5.50,
+        rating: 4.8,
+        reviews: 170,
+        prepTime: "5 min",
+        calories: "120 kcal",
+        isSpicy: false,
+        isVegetarian: true,
+        isChef: false,
+        desc: "Brewed organic jasmine green tea infused with cold-pressed passionfruit, ripe Alphonso mango nectar, and organic cane sugar.",
+        image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 17,
+        name: "Kyoto Ceremonial Iced Matcha Latte",
+        category: "Drinks",
+        restaurant: "Artisan Brews",
+        price: 6.20,
+        rating: 5.0,
+        reviews: 340,
+        prepTime: "5 min",
+        calories: "150 kcal",
+        isSpicy: false,
+        isVegetarian: true,
+        isChef: true,
+        desc: "First-harvest ceremonial grade Uji matcha whisked fresh and layered over creamy oat milk with a hint of Madagascar vanilla.",
+        image: "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 18,
+        name: "Blood Orange Sparkling Lemonade",
+        category: "Drinks",
+        restaurant: "Artisan Brews",
+        price: 4.80,
+        rating: 4.7,
+        reviews: 120,
+        prepTime: "5 min",
+        calories: "90 kcal",
+        isSpicy: false,
+        isVegetarian: true,
+        isChef: false,
+        desc: "Sicilian blood orange juice, freshly squeezed lemons, sparkling spring water, and fresh garden mint leaves.",
+        image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80"
+      }
+    ];
+
+    let currentCategory = 'All';
+    let activeModalDish = null;
+    let modalQuantity = 1;
+
+    function renderDishes(dishes) {
+      const container = document.getElementById('dishes-grid');
+      const noResults = document.getElementById('no-dishes');
+
+      if (!dishes || dishes.length === 0) {
+        container.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+      noResults.classList.add('hidden');
+
+      container.innerHTML = dishes.map(dish => `
+        <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300 border border-stone-200 flex flex-col group">
+          <div class="relative h-56 overflow-hidden cursor-pointer" onclick="openDishModal(${dish.id})">
+            <img src="${dish.image}" alt="${dish.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            ${dish.isChef ? '<span class="absolute top-3 left-3 bg-amber-500 text-stone-950 text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow">⭐ Chef Pick</span>' : ''}
+            ${dish.isSpicy ? '<span class="absolute top-3 right-3 bg-rose-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow">🌶️ Spicy</span>' : ''}
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs text-stone-400 font-semibold mb-1">
+                <span>${dish.category} • ${dish.restaurant}</span>
+                <span class="text-amber-600 font-bold"><i class="fa-solid fa-star text-[10px] mr-1"></i>${dish.rating}</span>
+              </div>
+              <h3 class="text-lg font-bold text-stone-900 group-hover:text-amber-600 transition cursor-pointer" onclick="openDishModal(${dish.id})">${dish.name}</h3>
+              <p class="text-xs text-stone-500 mt-2 line-clamp-2 leading-relaxed">${dish.desc}</p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] text-stone-400 uppercase font-bold block">Price</span>
+                <span class="text-xl font-black text-amber-600">$${dish.price.toFixed(2)}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="openDishModal(${dish.id})" title="View Details" class="p-2.5 text-stone-600 hover:text-amber-600 hover:bg-amber-50 rounded-xl transition">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+                <button onclick="FOOD_CART.addItem({ id: ${dish.id}, name: '${dish.name.replace(/'/g, "\\'")}', price: ${dish.price}, image: '${dish.image}', category: '${dish.category}' })" class="px-3.5 py-2.5 bg-stone-900 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow transition flex items-center gap-1.5">
+                  <i class="fa-solid fa-cart-plus"></i>
+                  <span>Add</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function setCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.className = 'cat-pill active px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 text-stone-950 whitespace-nowrap shadow-sm transition';
+        } else {
+          btn.className = 'cat-pill px-4 py-2 rounded-xl text-xs font-bold bg-stone-100 hover:bg-stone-200 text-stone-700 whitespace-nowrap transition';
+        }
+      });
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const search = (document.getElementById('menu-search-input').value || '').toLowerCase().trim();
+      const diet = document.getElementById('dietary-filter').value;
+      const sort = document.getElementById('sort-filter').value;
+
+      let filtered = ALL_DISHES.filter(d => {
+        const matchesCat = currentCategory === 'All' || d.category === currentCategory;
+        const matchesSearch = !search || d.name.toLowerCase().includes(search) || d.desc.toLowerCase().includes(search) || d.restaurant.toLowerCase().includes(search);
+        
+        let matchesDiet = true;
+        if (diet === 'Vegetarian') matchesDiet = d.isVegetarian;
+        if (diet === 'Spicy') matchesDiet = d.isSpicy;
+        if (diet === 'Chef') matchesDiet = d.isChef;
+
+        return matchesCat && matchesSearch && matchesDiet;
+      });
+
+      // Sorting
+      if (sort === 'price-low') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sort === 'price-high') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sort === 'rating') {
+        filtered.sort((a, b) => b.rating - a.rating);
+      } else {
+        filtered.sort((a, b) => b.reviews - a.reviews);
+      }
+
+      renderDishes(filtered);
+    }
+
+    function resetFilters() {
+      document.getElementById('menu-search-input').value = '';
+      document.getElementById('dietary-filter').value = 'All';
+      document.getElementById('sort-filter').value = 'popular';
+      setCategory('All');
+    }
+
+    // Modal Details Logic
+    function openDishModal(id) {
+      const dish = ALL_DISHES.find(d => d.id === id);
+      if (!dish) return;
+
+      activeModalDish = dish;
+      modalQuantity = 1;
+      document.getElementById('modal-qty').textContent = '1';
+      document.getElementById('modal-notes').value = '';
+
+      document.getElementById('modal-img').src = dish.image;
+      document.getElementById('modal-title').textContent = dish.name;
+      document.getElementById('modal-restaurant').textContent = dish.restaurant;
+      document.getElementById('modal-category').textContent = dish.category;
+      document.getElementById('modal-price').textContent = `$${dish.price.toFixed(2)}`;
+      document.getElementById('modal-desc').textContent = dish.desc;
+      document.getElementById('modal-cal').textContent = dish.calories;
+      document.getElementById('modal-prep').textContent = dish.prepTime;
+      document.getElementById('modal-rating').textContent = `⭐ ${dish.rating} (${dish.reviews})`;
+
+      document.getElementById('modal-add-btn').onclick = () => {
+        FOOD_CART.addItem({
+          id: dish.id,
+          name: dish.name,
+          price: dish.price,
+          image: dish.image,
+          category: dish.category,
+          quantity: modalQuantity
+        });
+        closeDishModal();
+      };
+
+      document.getElementById('dish-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDishModal() {
+      document.getElementById('dish-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function changeModalQty(delta) {
+      modalQuantity = Math.max(1, modalQuantity + delta);
+      document.getElementById('modal-qty').textContent = modalQuantity;
+    }
+
+    // URL Param Filter Check (e.g. ?cat=Italian or ?q=Pizza)
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const catParam = params.get('cat');
+      const queryParam = params.get('q');
+
+      if (queryParam) {
+        document.getElementById('menu-search-input').value = queryParam;
+      }
+
+      if (catParam) {
+        setCategory(catParam);
+      } else {
+        renderDishes(ALL_DISHES);
+      }
+    });
+  </script>
+</body>
+
+</html>

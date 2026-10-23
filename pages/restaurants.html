@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savoria - Master Kitchen Partners & Independent Chefs</title>
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Compiled Tailwind CSS -->
+  <link rel="stylesheet" href="../output.css">
+</head>
+
+<body class="bg-stone-50 text-stone-800 flex flex-col min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-stone-200 shadow-sm w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="../index.html" class="flex items-center gap-2.5 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition transform">
+            <i class="fa-solid fa-utensils text-lg"></i>
+          </div>
+          <div>
+            <span class="text-2xl font-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Savoria</span>
+            <span class="hidden sm:block text-[10px] uppercase font-extrabold tracking-widest text-stone-400 -mt-1">Gourmet Delivery</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden lg:flex items-center space-x-1 font-semibold text-stone-600 text-sm">
+          <a href="../index.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Home</a>
+          <a href="menu.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Full Menu</a>
+          <a href="restaurants.html" class="px-3.5 py-2 rounded-xl text-amber-600 bg-amber-50 font-bold transition">Kitchens & Chefs</a>
+          <a href="order-tracking.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Track Order</a>
+          <a href="about.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">About Us</a>
+          <a href="faq.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">FAQs</a>
+          <a href="contact.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Contact</a>
+        </div>
+
+        <!-- Right Actions -->
+        <div class="flex items-center gap-3">
+          <div class="auth-nav-container" data-root="../"></div>
+
+          <a href="cart.html" class="relative px-3.5 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-xl transition flex items-center gap-2 font-bold text-xs shadow-sm">
+            <i class="fa-solid fa-bag-shopping text-base text-amber-600"></i>
+            <span class="hidden sm:inline">Cart</span>
+            <span class="cart-count-badge hidden absolute -top-1.5 -right-1.5 bg-rose-600 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+          </a>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-xl text-stone-600 hover:bg-stone-100 focus:outline-none">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-stone-100 bg-white px-4 pt-3 pb-6 space-y-2">
+      <a href="../index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Home</a>
+      <a href="menu.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Full Menu</a>
+      <a href="restaurants.html" class="block px-3 py-2 rounded-lg text-base font-bold text-amber-600 bg-amber-50">Kitchens & Chefs</a>
+      <a href="order-tracking.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Track Order</a>
+      <a href="cart.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Your Cart</a>
+      <a href="about.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">About Us</a>
+      <a href="faq.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">FAQs</a>
+      <a href="contact.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Header Hero -->
+  <header class="bg-gradient-to-r from-stone-900 via-stone-950 to-amber-950 text-white py-14 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-amber-500/20 text-amber-300 text-xs uppercase font-extrabold tracking-wider mb-2 border border-amber-500/30">
+        Culinary Pioneers
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-black">Our Artisan Kitchen Partners</h1>
+      <p class="mt-3 text-stone-300 text-sm max-w-xl mx-auto">
+        Every meal on Savoria is crafted by vetted independent culinary artists committed to ethical farming, authentic recipes, and supreme quality.
+      </p>
+    </div>
+  </header>
+
+  <!-- Partner Kitchens Directory -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-1 w-full space-y-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Kitchen 1 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-stone-200 transition group flex flex-col justify-between">
+        <div>
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Trattoria Bella" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-amber-500 text-stone-950 text-xs font-black uppercase px-2.5 py-1 rounded-full shadow">Italian</span>
+            <span class="absolute top-3 right-3 bg-stone-900/80 text-amber-300 text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+              ⭐ 4.9 (1.2k)
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-stone-900">Trattoria Bella & Wood Oven</h3>
+            <p class="text-xs text-amber-600 font-semibold mt-0.5">Naples Pizza • Handmade Pastas • Risottos</p>
+            <p class="text-xs text-stone-500 mt-3 leading-relaxed">
+              Family-owned trattoria importing double-zero organic flour, San Marzano D.O.P. tomatoes, and olive oil directly from small farms in Tuscany.
+            </p>
+            <div class="mt-4 flex items-center gap-4 text-xs text-stone-400">
+              <span><i class="fa-solid fa-clock text-amber-500 mr-1"></i>20-30 min</span>
+              <span><i class="fa-solid fa-money-bill-wave text-amber-500 mr-1"></i>Min $15</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="menu.html?cat=Italian" class="block w-full py-2.5 bg-stone-900 hover:bg-amber-600 text-white font-bold text-xs rounded-xl text-center transition">
+            View Kitchen Menu &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Kitchen 2 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-stone-200 transition group flex flex-col justify-between">
+        <div>
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=800&q=80" alt="Tokyo Drift Bar" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-rose-600 text-white text-xs font-black uppercase px-2.5 py-1 rounded-full shadow">Japanese</span>
+            <span class="absolute top-3 right-3 bg-stone-900/80 text-amber-300 text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+              ⭐ 5.0 (890)
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-stone-900">Tokyo Drift Izakaya & Sushi</h3>
+            <p class="text-xs text-amber-600 font-semibold mt-0.5">Sashimi • Flame Rolls • Tonkotsu Ramen</p>
+            <p class="text-xs text-stone-500 mt-3 leading-relaxed">
+              Master sushi artisans preparing daily catches flown in from Toyosu market and simmered Hokkaido bone broths.
+            </p>
+            <div class="mt-4 flex items-center gap-4 text-xs text-stone-400">
+              <span><i class="fa-solid fa-clock text-amber-500 mr-1"></i>25-35 min</span>
+              <span><i class="fa-solid fa-money-bill-wave text-amber-500 mr-1"></i>Min $20</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="menu.html?cat=Japanese" class="block w-full py-2.5 bg-stone-900 hover:bg-amber-600 text-white font-bold text-xs rounded-xl text-center transition">
+            View Kitchen Menu &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Kitchen 3 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-stone-200 transition group flex flex-col justify-between">
+        <div>
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80" alt="The Smokehouse BBQ" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-orange-600 text-white text-xs font-black uppercase px-2.5 py-1 rounded-full shadow">American</span>
+            <span class="absolute top-3 right-3 bg-stone-900/80 text-amber-300 text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+              ⭐ 4.9 (2.1k)
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-stone-900">The Smokehouse Wagyu & Grill</h3>
+            <p class="text-xs text-amber-600 font-semibold mt-0.5">Dry-Aged Wagyu • Smashed Burgers • Truffle Fries</p>
+            <p class="text-xs text-stone-500 mt-3 leading-relaxed">
+              Hickory and applewood slow-smoked meats with house-made fermented hot sauces and toasted brioche buns baked fresh every morning.
+            </p>
+            <div class="mt-4 flex items-center gap-4 text-xs text-stone-400">
+              <span><i class="fa-solid fa-clock text-amber-500 mr-1"></i>18-25 min</span>
+              <span><i class="fa-solid fa-money-bill-wave text-amber-500 mr-1"></i>Min $15</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="menu.html?cat=Burgers" class="block w-full py-2.5 bg-stone-900 hover:bg-amber-600 text-white font-bold text-xs rounded-xl text-center transition">
+            View Kitchen Menu &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Kitchen 4 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-stone-200 transition group flex flex-col justify-between">
+        <div>
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1504544750208-dc0358e63f7f?auto=format&fit=crop&w=800&q=80" alt="Cantina Fuego" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-black uppercase px-2.5 py-1 rounded-full shadow">Mexican</span>
+            <span class="absolute top-3 right-3 bg-stone-900/80 text-amber-300 text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+              ⭐ 4.9 (1.4k)
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-stone-900">Cantina Fuego & Taqueria</h3>
+            <p class="text-xs text-amber-600 font-semibold mt-0.5">Birria Tacos • Asada Burritos • Fresh Guacamole</p>
+            <p class="text-xs text-stone-500 mt-3 leading-relaxed">
+              Heirloom Mexican corn nixtamalized in-house for authentic handmade tortillas and 12-hour slow-cooked shredded meats.
+            </p>
+            <div class="mt-4 flex items-center gap-4 text-xs text-stone-400">
+              <span><i class="fa-solid fa-clock text-amber-500 mr-1"></i>15-25 min</span>
+              <span><i class="fa-solid fa-money-bill-wave text-amber-500 mr-1"></i>Min $12</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="menu.html?cat=Mexican" class="block w-full py-2.5 bg-stone-900 hover:bg-amber-600 text-white font-bold text-xs rounded-xl text-center transition">
+            View Kitchen Menu &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Kitchen 5 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-stone-200 transition group flex flex-col justify-between">
+        <div>
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" alt="The Green Bowl Co." class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-teal-600 text-white text-xs font-black uppercase px-2.5 py-1 rounded-full shadow">Healthy</span>
+            <span class="absolute top-3 right-3 bg-stone-900/80 text-amber-300 text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+              ⭐ 4.8 (760)
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-stone-900">The Green Bowl Co.</h3>
+            <p class="text-xs text-amber-600 font-semibold mt-0.5">Organic Superfoods • Poke • Vegan Specialties</p>
+            <p class="text-xs text-stone-500 mt-3 leading-relaxed">
+              100% clean eating with cold-pressed dressings, seasonal harvest vegetables, and high-protein grain bowls.
+            </p>
+            <div class="mt-4 flex items-center gap-4 text-xs text-stone-400">
+              <span><i class="fa-solid fa-clock text-amber-500 mr-1"></i>12-20 min</span>
+              <span><i class="fa-solid fa-money-bill-wave text-amber-500 mr-1"></i>Min $10</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="menu.html?cat=Healthy" class="block w-full py-2.5 bg-stone-900 hover:bg-amber-600 text-white font-bold text-xs rounded-xl text-center transition">
+            View Kitchen Menu &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Kitchen 6 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-stone-200 transition group flex flex-col justify-between">
+        <div>
+          <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80" alt="Dolce & Crema" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span class="absolute top-3 left-3 bg-pink-600 text-white text-xs font-black uppercase px-2.5 py-1 rounded-full shadow">Desserts</span>
+            <span class="absolute top-3 right-3 bg-stone-900/80 text-amber-300 text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+              ⭐ 5.0 (1.8k)
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-stone-900">Dolce & Crema Artisan Bakery</h3>
+            <p class="text-xs text-amber-600 font-semibold mt-0.5">Lava Cakes • Gelato • Tiramisu</p>
+            <p class="text-xs text-stone-500 mt-3 leading-relaxed">
+              European patisserie masters crafting delicate chocolate desserts, authentic Venetian tiramisu, and house-churned gelato.
+            </p>
+            <div class="mt-4 flex items-center gap-4 text-xs text-stone-400">
+              <span><i class="fa-solid fa-clock text-amber-500 mr-1"></i>10-18 min</span>
+              <span><i class="fa-solid fa-money-bill-wave text-amber-500 mr-1"></i>Min $10</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <a href="menu.html?cat=Desserts" class="block w-full py-2.5 bg-stone-900 hover:bg-amber-600 text-white font-bold text-xs rounded-xl text-center transition">
+            View Kitchen Menu &rarr;
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Partner With Us Banner -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <div class="bg-amber-500 text-stone-950 rounded-3xl p-8 sm:p-12 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="max-w-xl space-y-2">
+        <span class="text-xs font-black uppercase tracking-wider text-stone-900">Are You An Artisan Kitchen?</span>
+        <h3 class="text-3xl font-black">Partner With Savoria Today</h3>
+        <p class="text-xs text-stone-900 font-medium">Reach tens of thousands of discerning food enthusiasts with our temperature-controlled flash delivery fleet.</p>
+      </div>
+      <a href="contact.html" class="px-6 py-3.5 bg-stone-950 hover:bg-stone-800 text-white font-black text-xs rounded-2xl shadow transition whitespace-nowrap">
+        Apply as a Kitchen Partner &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-stone-900 text-stone-300 pt-16 pb-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-amber-500 text-stone-950 flex items-center justify-center font-bold">
+            <i class="fa-solid fa-utensils text-sm"></i>
+          </div>
+          <span class="text-xl font-bold text-white">Savoria</span>
+        </div>
+        <p class="text-sm text-stone-400 leading-relaxed mb-6">
+          Curating exceptional culinary feasts from premier independent kitchens and delivering them piping hot with white-glove speed.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Navigation</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
+          <li><a href="menu.html" class="hover:text-white transition">Full Gourmet Menu</a></li>
+          <li><a href="restaurants.html" class="text-amber-400 font-bold hover:text-white transition">Kitchen Partners</a></li>
+          <li><a href="order-tracking.html" class="hover:text-white transition">Live Order Tracking</a></li>
+          <li><a href="cart.html" class="hover:text-white transition">Your Cart</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Kitchen Standards</h4>
+        <ul class="space-y-2 text-sm text-stone-400">
+          <li>100% Grade-A Health Inspection</li>
+          <li>Organic Non-GMO Produce</li>
+          <li>Eco-Friendly Biodegradable Packaging</li>
+          <li>Zero Artificial Trans Fats</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Need Immediate Help?</h4>
+        <p class="text-xs text-stone-400 mb-2">Our customer concierge is available 24/7 for order updates or dietary inquiries.</p>
+        <p class="text-sm font-bold text-white mb-4">+1 (800) 929-FOOD</p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500">
+      <p>&copy; 2026 Savoria Gourmet Delivery Co. All rights reserved.</p>
+      <div class="flex gap-4 mt-4 sm:mt-0">
+        <a href="ToS_and_Privacy.html" class="hover:text-stone-300">Terms of Service</a>
+        <a href="ToS_and_Privacy.html" class="hover:text-stone-300">Privacy Policy</a>
+        <a href="faq.html" class="hover:text-stone-300">Help Desk</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared JS -->
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

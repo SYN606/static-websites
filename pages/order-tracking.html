@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savoria - Real-Time Live Order Tracker</title>
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Compiled Tailwind CSS -->
+  <link rel="stylesheet" href="../output.css">
+</head>
+
+<body class="bg-stone-50 text-stone-800 flex flex-col min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-stone-200 shadow-sm w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="../index.html" class="flex items-center gap-2.5 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition transform">
+            <i class="fa-solid fa-utensils text-lg"></i>
+          </div>
+          <div>
+            <span class="text-2xl font-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Savoria</span>
+            <span class="hidden sm:block text-[10px] uppercase font-extrabold tracking-widest text-stone-400 -mt-1">Gourmet Delivery</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden lg:flex items-center space-x-1 font-semibold text-stone-600 text-sm">
+          <a href="../index.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Home</a>
+          <a href="menu.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Full Menu</a>
+          <a href="restaurants.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Kitchens & Chefs</a>
+          <a href="order-tracking.html" class="px-3.5 py-2 rounded-xl text-amber-600 bg-amber-50 font-bold transition">Track Order</a>
+          <a href="about.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">About Us</a>
+          <a href="faq.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">FAQs</a>
+          <a href="contact.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Contact</a>
+        </div>
+
+        <!-- Right Actions -->
+        <div class="flex items-center gap-3">
+          <div class="auth-nav-container" data-root="../"></div>
+
+          <!-- Cart Button -->
+          <a href="cart.html" class="relative px-3.5 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-xl transition flex items-center gap-2 font-bold text-xs shadow-sm">
+            <i class="fa-solid fa-bag-shopping text-base text-amber-600"></i>
+            <span class="hidden sm:inline">Cart</span>
+            <span class="cart-count-badge hidden absolute -top-1.5 -right-1.5 bg-rose-600 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+          </a>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-xl text-stone-600 hover:bg-stone-100 focus:outline-none">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-stone-100 bg-white px-4 pt-3 pb-6 space-y-2">
+      <a href="../index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Home</a>
+      <a href="menu.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Full Menu</a>
+      <a href="restaurants.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Kitchens & Chefs</a>
+      <a href="order-tracking.html" class="block px-3 py-2 rounded-lg text-base font-bold text-amber-600 bg-amber-50">Track Order</a>
+      <a href="cart.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Your Cart</a>
+      <a href="about.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">About Us</a>
+      <a href="faq.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">FAQs</a>
+      <a href="contact.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-stone-900 via-stone-950 to-amber-950 text-white py-12 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-amber-500/20 text-amber-300 text-xs uppercase font-extrabold tracking-wider mb-2 border border-amber-500/30">
+        Live Telemetry
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-black">Real-Time Feast Tracker</h1>
+      <p class="mt-2 text-stone-300 text-xs sm:text-sm">Follow your food from flame to doorstep with live driver status.</p>
+
+      <!-- Order ID Search Input -->
+      <div class="mt-6 max-w-md mx-auto flex gap-2">
+        <input type="text" id="tracker-input" placeholder="Enter Order ID (e.g. SAV-84920)" value="SAV-84920" class="w-full uppercase font-bold text-xs border border-stone-700 rounded-xl px-4 py-2.5 bg-stone-800 text-white placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500">
+        <button onclick="lookupOrder()" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-600 text-stone-950 font-black text-xs rounded-xl shadow transition">
+          Track
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Tracker Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full space-y-10">
+
+    <!-- Stepper Card -->
+    <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-stone-200">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b border-stone-100 gap-4">
+        <div>
+          <span class="text-[10px] uppercase font-extrabold text-amber-600 tracking-wider">Tracking Order</span>
+          <h2 id="display-order-id" class="text-2xl font-black text-stone-900">SAV-84920</h2>
+          <span class="text-xs text-stone-400">Placed 12 mins ago • Trattoria Bella & The Smokehouse</span>
+        </div>
+
+        <div class="text-left sm:text-right">
+          <span class="text-[10px] uppercase font-bold text-stone-400 block">Estimated Arrival</span>
+          <span id="display-eta" class="text-2xl font-black text-amber-600">14 Minutes</span>
+        </div>
+      </div>
+
+      <!-- 4 Stages Progress Bar -->
+      <div class="py-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+
+          <!-- Step 1 -->
+          <div id="step-1" class="step-card flex md:flex-col items-center gap-4 text-left md:text-center">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500 text-stone-950 flex items-center justify-center text-xl font-bold shadow-md transition">
+              <i class="fa-solid fa-receipt"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-stone-900 text-sm">1. Order Confirmed</h4>
+              <p class="text-[11px] text-stone-400">Kitchen received your ticket</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div id="step-2" class="step-card flex md:flex-col items-center gap-4 text-left md:text-center">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500 text-stone-950 flex items-center justify-center text-xl font-bold shadow-md transition">
+              <i class="fa-solid fa-fire-burner"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-stone-900 text-sm">2. Sizzling in Kitchen</h4>
+              <p class="text-[11px] text-stone-400">Master chef preparing ingredients</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div id="step-3" class="step-card active flex md:flex-col items-center gap-4 text-left md:text-center">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500 text-stone-950 flex items-center justify-center text-xl font-bold shadow-md transition animate-pulse">
+              <i class="fa-solid fa-motorcycle"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-amber-600 text-sm">3. On The Way</h4>
+              <p class="text-[11px] text-amber-700 font-semibold">Courier en route to address</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div id="step-4" class="step-card opacity-40 flex md:flex-col items-center gap-4 text-left md:text-center">
+            <div class="w-14 h-14 rounded-2xl bg-stone-200 text-stone-600 flex items-center justify-center text-xl font-bold shadow-sm transition">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-stone-800 text-sm">4. Delivered</h4>
+              <p class="text-[11px] text-stone-400">Enjoy your feast!</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Simulator Next Stage Button -->
+        <div class="mt-8 pt-6 border-t border-stone-100 text-center">
+          <button onclick="advanceStage()" class="px-5 py-2.5 bg-stone-900 hover:bg-amber-600 text-white font-bold text-xs rounded-xl shadow transition inline-flex items-center gap-2">
+            <i class="fa-solid fa-forward-step"></i>
+            <span>Simulate Next Stage (Demo Tool)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Map & Courier Details Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+      <!-- Map Mockup Graphic (Col 7) -->
+      <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="font-black text-stone-900 text-base flex items-center gap-2">
+            <i class="fa-solid fa-map-location-dot text-amber-500"></i>
+            <span>Live GPS Route Tracking</span>
+          </h3>
+          <span class="text-xs bg-emerald-100 text-emerald-700 font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>Live GPS Connected</span>
+          </span>
+        </div>
+
+        <!-- Simulated Visual Map Canvas -->
+        <div class="relative h-80 rounded-2xl overflow-hidden bg-stone-900 border border-stone-800 flex items-center justify-center p-6 text-white text-center">
+          <!-- Background street grid graphic -->
+          <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+          <!-- Restaurant Node -->
+          <div class="absolute top-10 left-12 flex flex-col items-center">
+            <div class="w-10 h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center shadow-lg font-bold">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <span class="text-[10px] font-bold mt-1 bg-stone-950/80 px-2 py-0.5 rounded text-amber-300">Kitchen</span>
+          </div>
+
+          <!-- Dotted delivery path -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 60 70 Q 250 120 400 240" fill="transparent" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8 8" class="animate-pulse" />
+          </svg>
+
+          <!-- Courier Scooter Marker -->
+          <div id="courier-marker" class="absolute top-36 left-52 flex flex-col items-center transition-all duration-700">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500 text-stone-950 flex items-center justify-center text-lg font-bold shadow-2xl border-2 border-white animate-bounce">
+              <i class="fa-solid fa-motorcycle"></i>
+            </div>
+            <span class="text-[10px] font-black mt-1 bg-amber-500 text-stone-950 px-2 py-0.5 rounded-full shadow">Marcus (0.8 mi away)</span>
+          </div>
+
+          <!-- Customer Destination Node -->
+          <div class="absolute bottom-10 right-12 flex flex-col items-center">
+            <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-lg font-bold">
+              <i class="fa-solid fa-house"></i>
+            </div>
+            <span class="text-[10px] font-bold mt-1 bg-stone-950/80 px-2 py-0.5 rounded text-emerald-300">Your Home</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Driver & Order Info (Col 5) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- Driver Profile Card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200">
+          <h4 class="text-xs uppercase font-extrabold text-stone-400 tracking-wider mb-4">Your Assigned Courier</h4>
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 text-stone-950 flex items-center justify-center text-2xl font-black shadow-md flex-shrink-0">
+              MV
+            </div>
+            <div class="flex-1">
+              <h3 class="text-lg font-bold text-stone-900">Marcus Vance</h3>
+              <p class="text-xs text-stone-500">Silver Honda Scooter • Plate #6AB-92</p>
+              <div class="flex items-center gap-1 text-xs text-amber-500 font-bold mt-0.5">
+                <i class="fa-solid fa-star"></i>
+                <span>4.98 (1,420 trips)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 mt-6">
+            <button onclick="showToast('Calling Marcus at +1 (555) 902-8371...', 'info')" class="py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-800 font-bold text-xs rounded-xl transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-phone"></i>
+              <span>Call Courier</span>
+            </button>
+            <button onclick="showToast('Message sent: \"Driver instructed to ring doorbell on arrival.\"', 'success')" class="py-2.5 bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold text-xs rounded-xl shadow transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-message"></i>
+              <span>Send Message</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Receipt Summary Card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200 space-y-3 text-xs">
+          <h4 class="text-xs uppercase font-extrabold text-stone-400 tracking-wider mb-2">Order Items</h4>
+          <div class="flex justify-between">
+            <span class="text-stone-700">1x Truffle Burrata Margherita</span>
+            <span class="font-bold text-stone-900">$18.50</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone-700">1x Double Smashed Wagyu Burger</span>
+            <span class="font-bold text-stone-900">$16.99</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone-700">1x Truffle Parmesan Hand-Cut Fries</span>
+            <span class="font-bold text-stone-900">$7.99</span>
+          </div>
+          <div class="pt-3 border-t border-stone-100 flex justify-between font-black text-sm text-stone-900">
+            <span>Total Amount Paid</span>
+            <span class="text-amber-600">$48.47</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-stone-900 text-stone-300 pt-16 pb-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-amber-500 text-stone-950 flex items-center justify-center font-bold">
+            <i class="fa-solid fa-utensils text-sm"></i>
+          </div>
+          <span class="text-xl font-bold text-white">Savoria</span>
+        </div>
+        <p class="text-sm text-stone-400 leading-relaxed mb-6">
+          Curating exceptional culinary feasts from premier independent kitchens and delivering them piping hot with white-glove speed.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Navigation</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
+          <li><a href="menu.html" class="hover:text-white transition">Full Gourmet Menu</a></li>
+          <li><a href="restaurants.html" class="hover:text-white transition">Kitchen Partners</a></li>
+          <li><a href="order-tracking.html" class="text-amber-400 font-bold hover:text-white transition">Live Order Tracking</a></li>
+          <li><a href="cart.html" class="hover:text-white transition">Your Cart</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Delivery Zones</h4>
+        <ul class="space-y-2 text-sm text-stone-400">
+          <li>Downtown Core (15-20 min)</li>
+          <li>Uptown & Financial District (20-25 min)</li>
+          <li>Westside Marina (25-30 min)</li>
+          <li>Suburban Hubs (30-40 min)</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Need Immediate Help?</h4>
+        <p class="text-xs text-stone-400 mb-2">Our customer concierge is available 24/7 for order updates or dietary inquiries.</p>
+        <p class="text-sm font-bold text-white mb-4">+1 (800) 929-FOOD</p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500">
+      <p>&copy; 2026 Savoria Gourmet Delivery Co. All rights reserved.</p>
+      <div class="flex gap-4 mt-4 sm:mt-0">
+        <a href="ToS_and_Privacy.html" class="hover:text-stone-300">Terms of Service</a>
+        <a href="ToS_and_Privacy.html" class="hover:text-stone-300">Privacy Policy</a>
+        <a href="faq.html" class="hover:text-stone-300">Help Desk</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared JS -->
+  <script src="../js/main.js"></script>
+
+  <script>
+    let currentStage = 3; // 1: Confirmed, 2: Cooking, 3: On The Way, 4: Delivered
+
+    function updateStageUI() {
+      const etas = {
+        1: "28 Minutes",
+        2: "22 Minutes",
+        3: "12 Minutes",
+        4: "Arrived / Delivered!"
+      };
+
+      document.getElementById('display-eta').textContent = etas[currentStage];
+
+      for (let i = 1; i <= 4; i++) {
+        const step = document.getElementById(`step-${i}`);
+        const iconDiv = step.querySelector('div');
+
+        if (i < currentStage) {
+          step.className = 'step-card flex md:flex-col items-center gap-4 text-left md:text-center opacity-100';
+          iconDiv.className = 'w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-xl font-bold shadow-md transition';
+          iconDiv.innerHTML = '<i class="fa-solid fa-check"></i>';
+        } else if (i === currentStage) {
+          step.className = 'step-card active flex md:flex-col items-center gap-4 text-left md:text-center opacity-100';
+          iconDiv.className = 'w-14 h-14 rounded-2xl bg-amber-500 text-stone-950 flex items-center justify-center text-xl font-bold shadow-md transition animate-pulse';
+        } else {
+          step.className = 'step-card opacity-40 flex md:flex-col items-center gap-4 text-left md:text-center';
+          iconDiv.className = 'w-14 h-14 rounded-2xl bg-stone-200 text-stone-600 flex items-center justify-center text-xl font-bold shadow-sm transition';
+        }
+      }
+
+      // Move marker on map
+      const marker = document.getElementById('courier-marker');
+      if (currentStage === 1) {
+        marker.style.top = '40px';
+        marker.style.left = '60px';
+      } else if (currentStage === 2) {
+        marker.style.top = '60px';
+        marker.style.left = '100px';
+      } else if (currentStage === 3) {
+        marker.style.top = '144px';
+        marker.style.left = '208px';
+      } else if (currentStage === 4) {
+        marker.style.top = '220px';
+        marker.style.left = '320px';
+      }
+    }
+
+    function advanceStage() {
+      currentStage = currentStage >= 4 ? 1 : currentStage + 1;
+      updateStageUI();
+      showToast(`Stage updated to step ${currentStage}!`, 'info');
+    }
+
+    function lookupOrder() {
+      const orderId = document.getElementById('tracker-input').value.trim().toUpperCase();
+      if (orderId) {
+        document.getElementById('display-order-id').textContent = orderId;
+        showToast(`Tracking status updated for ${orderId}`, 'success');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const orderIdParam = params.get('orderId');
+      if (orderIdParam) {
+        document.getElementById('tracker-input').value = orderIdParam;
+        document.getElementById('display-order-id').textContent = orderIdParam;
+      }
+      updateStageUI();
+    });
+  </script>
+</body>
+
+</html>

@@ -2,211 +2,170 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voyage Vista - Create Your Free Traveler Account</title>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Tailwind CSS -->
-    <link rel="stylesheet" href="../output.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savoria - Join Savoria Foodie Rewards Club</title>
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Compiled Tailwind CSS -->
+  <link rel="stylesheet" href="../output.css">
 </head>
 
-<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+<body class="bg-stone-50 text-stone-800 flex flex-col min-h-screen">
 
-    <!-- Navbar -->
-    <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100 shadow-sm w-full">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="../index.html" class="flex items-center gap-2 group">
-                    <div
-                        class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 to-blue-500 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition transform">
-                        <i class="fa-solid fa-plane-departure text-lg"></i>
-                    </div>
-                    <span
-                        class="text-2xl font-black bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">Voyage
-                        Vista</span>
-                </a>
+  <!-- Navbar -->
+  <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-stone-200 shadow-sm w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
 
-                <!-- Desktop Nav Links -->
-                <div class="hidden lg:flex items-center space-x-1 font-semibold text-gray-600 text-sm">
-                    <a href="../index.html"
-                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Home</a>
-                    <a href="destinations/dest.html"
-                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Destinations</a>
-                    <a href="packages.html"
-                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Packages</a>
-                    <a href="booking.html"
-                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Trip Planner</a>
-                    <a href="gallery.html"
-                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Gallery</a>
-                    <a href="blog.html"
-                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Blog</a>
-                    <a href="faq.html"
-                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">FAQs</a>
-                    <a href="about.html"
-                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">About Us</a>
-                    <a href="contact.html"
-                        class="px-3 py-2 rounded-xl hover:text-indigo-600 hover:bg-gray-50 transition">Contact</a>
-                </div>
+        <!-- Logo -->
+        <a href="../index.html" class="flex items-center gap-2.5 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition transform">
+            <i class="fa-solid fa-utensils text-lg"></i>
+          </div>
+          <div>
+            <span class="text-2xl font-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Savoria</span>
+            <span class="hidden sm:block text-[10px] uppercase font-extrabold tracking-widest text-stone-400 -mt-1">Gourmet Delivery</span>
+          </div>
+        </a>
 
-                <!-- Right Actions -->
-                <div class="flex items-center gap-3">
-                    <a href="login.html"
-                        class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs rounded-xl transition">
-                        Log In
-                    </a>
-                </div>
-            </div>
+        <!-- Desktop Nav Links -->
+        <div class="hidden lg:flex items-center space-x-1 font-semibold text-stone-600 text-sm">
+          <a href="../index.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Home</a>
+          <a href="menu.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Full Menu</a>
+          <a href="restaurants.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Kitchens & Chefs</a>
+          <a href="order-tracking.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Track Order</a>
+          <a href="about.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">About Us</a>
+          <a href="faq.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">FAQs</a>
+          <a href="contact.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Contact</a>
         </div>
-    </nav>
 
-    <!-- Main Signup Container -->
-    <main class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div
-            class="max-w-4xl w-full bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden grid grid-cols-1 md:grid-cols-12">
-
-            <!-- Left Branding Side -->
-            <div
-                class="md:col-span-5 bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 p-8 sm:p-10 text-white flex flex-col justify-between relative overflow-hidden">
-                <div class="relative z-10">
-                    <div
-                        class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-6">
-                        <i class="fa-solid fa-plane-departure text-xl text-white"></i>
-                    </div>
-                    <span class="text-xs uppercase font-bold tracking-wider text-amber-400">Join Voyage Vista
-                        Club</span>
-                    <h2 class="text-2xl sm:text-3xl font-black mt-2 leading-tight">Unlock Exclusive Worldwide Privileges
-                    </h2>
-                    <p class="text-xs text-indigo-200 mt-3 leading-relaxed">
-                        Become a member today and instantly receive 15% off your first holiday package booking, free
-                        room upgrades, and custom itinerary planning.
-                    </p>
-                </div>
-
-                <div class="relative z-10 space-y-2 mt-8 text-xs text-indigo-200">
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-check text-amber-400"></i>
-                        <span>Personalized trip cost estimates</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-check text-amber-400"></i>
-                        <span>Free 100% money-back cancellation</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-check text-amber-400"></i>
-                        <span>24/7 global priority concierge</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Signup Form -->
-            <div class="md:col-span-7 p-8 sm:p-10 flex flex-col justify-center">
-                <div class="mb-6">
-                    <h3 class="text-2xl font-black text-gray-900">Create your account</h3>
-                    <p class="text-xs text-gray-500 mt-1">
-                        Already have an account? <a href="login.html"
-                            class="text-indigo-600 font-bold hover:underline">Log in here</a>
-                    </p>
-                </div>
-
-                <form id="signup-form" onsubmit="handleSignupSubmit(event)" class="space-y-3">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">First Name *</label>
-                            <input type="text" id="su-fname" required placeholder="Alex"
-                                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs bg-gray-50">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Last Name *</label>
-                            <input type="text" id="su-lname" required placeholder="Morgan"
-                                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs bg-gray-50">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Email Address *</label>
-                            <input type="email" id="su-email" required placeholder="alex@example.com"
-                                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs bg-gray-50">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Phone Number</label>
-                            <input type="tel" id="su-phone" placeholder="+1 (555) 234-5678"
-                                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs bg-gray-50">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Password *</label>
-                            <input type="password" id="su-pwd" required placeholder="••••••••"
-                                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs bg-gray-50">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Country</label>
-                            <select id="su-country"
-                                class="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-xs bg-white">
-                                <option value="United States">United States</option>
-                                <option value="United Kingdom">United Kingdom</option>
-                                <option value="Canada">Canada</option>
-                                <option value="Australia">Australia</option>
-                                <option value="Germany">Germany</option>
-                                <option value="France">France</option>
-                                <option value="Singapore">Singapore</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-2 text-xs py-2">
-                        <input type="checkbox" required id="su-agree" checked
-                            class="w-4 h-4 text-indigo-600 rounded mt-0.5">
-                        <label for="su-agree" class="text-gray-600">
-                            I agree to the <a href="ToS_and_Privacy.html" class="underline text-indigo-600">Terms of
-                                Service</a> & <a href="ToS_and_Privacy.html" class="underline text-indigo-600">Privacy
-                                Policy</a>.
-                        </label>
-                    </div>
-
-                    <button type="submit"
-                        class="w-full py-3.5 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-bold text-sm rounded-xl shadow-md transition transform hover:-translate-y-0.5">
-                        Complete Account Registration &rarr;
-                    </button>
-                </form>
-            </div>
-
+        <!-- Right Actions -->
+        <div class="flex items-center gap-3">
+          <a href="login.html" class="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 font-bold text-xs rounded-xl transition">
+            Sign In
+          </a>
         </div>
-    </main>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-8 text-center text-xs border-t border-gray-800">
-        <p>&copy; 2026 Voyage Vista Co. All rights reserved. <a href="../index.html"
-                class="text-indigo-400 hover:underline ml-2">Back to Homepage</a></p>
-    </footer>
+  <!-- Signup Main Container -->
+  <main class="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl w-full bg-white rounded-3xl shadow-2xl border border-stone-200 overflow-hidden grid grid-cols-1 md:grid-cols-12">
 
-    <!-- Shared JS -->
-    <script src="../js/main.js"></script>
+      <!-- Left Branding Banner (Col 5) -->
+      <div class="md:col-span-5 bg-gradient-to-br from-stone-900 via-stone-950 to-amber-950 p-8 sm:p-10 text-white flex flex-col justify-between relative overflow-hidden">
+        <div class="relative z-10">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/20 flex items-center justify-center mb-6 text-amber-400 text-2xl">
+            <i class="fa-solid fa-gift"></i>
+          </div>
+          <span class="text-xs uppercase font-extrabold tracking-wider text-amber-400">Join the Foodie Club</span>
+          <h2 class="text-2xl sm:text-3xl font-black mt-2 leading-tight">Unlock Exclusive Member Cravings</h2>
+          <p class="text-xs text-stone-300 mt-3 leading-relaxed">
+            Create your account today and instantly earn 100 bonus Feast Points + 20% off your first delivery order.
+          </p>
+        </div>
 
-    <script>
-        function handleSignupSubmit(e) {
-            e.preventDefault();
-            const fname = document.getElementById('su-fname').value.trim();
-            const lname = document.getElementById('su-lname').value.trim();
-            const email = document.getElementById('su-email').value.trim();
-            const fullName = `${fname} ${lname}`;
+        <div class="relative z-10 space-y-2 mt-8 text-xs text-stone-300">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-check text-amber-400"></i>
+            <span>Real-time GPS order updates</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-check text-amber-400"></i>
+            <span>Exclusive secret tasting menus</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-check text-amber-400"></i>
+            <span>Zero delivery fee on orders over $40</span>
+          </div>
+        </div>
+      </div>
 
-            VV_AUTH.setUser({
-                name: fullName,
-                email: email
-            });
+      <!-- Right Signup Form (Col 7) -->
+      <div class="md:col-span-7 p-8 sm:p-10 flex flex-col justify-center">
+        <div class="mb-6">
+          <h3 class="text-2xl font-black text-stone-900">Create Free Account</h3>
+          <p class="text-xs text-stone-500 mt-1">
+            Already a member? <a href="login.html" class="text-amber-600 font-bold hover:underline">Log in here</a>
+          </p>
+        </div>
 
-            showToast(`🎉 Account created! Welcome to Voyage Vista, ${fname}!`, 'success');
-            setTimeout(() => {
-                window.location.href = '../index.html';
-            }, 800);
-        }
-    </script>
+        <form id="signup-form" onsubmit="handleSignupSubmit(event)" class="space-y-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase mb-1">First Name *</label>
+              <input type="text" id="su-fname" required placeholder="Alex" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-500 focus:outline-none text-xs bg-stone-50">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Last Name *</label>
+              <input type="text" id="su-lname" required placeholder="Morgan" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-500 focus:outline-none text-xs bg-stone-50">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Email Address *</label>
+              <input type="email" id="su-email" required placeholder="alex@example.com" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-500 focus:outline-none text-xs bg-stone-50">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Mobile Phone</label>
+              <input type="tel" id="su-phone" placeholder="+1 (555) 438-9201" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-500 focus:outline-none text-xs bg-stone-50">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Password *</label>
+            <input type="password" id="su-pwd" required placeholder="••••••••" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:ring-2 focus:ring-amber-500 focus:outline-none text-xs bg-stone-50">
+          </div>
+
+          <div class="flex items-start gap-2 text-xs py-2">
+            <input type="checkbox" required id="su-agree" checked class="w-4 h-4 text-amber-600 rounded mt-0.5">
+            <label for="su-agree" class="text-stone-600">
+              I agree to the <a href="ToS_and_Privacy.html" class="underline text-amber-600 font-bold">Terms of Service</a> & <a href="ToS_and_Privacy.html" class="underline text-amber-600 font-bold">Food Safety Policy</a>.
+            </label>
+          </div>
+
+          <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-stone-950 font-black text-xs sm:text-sm rounded-xl shadow-md transition transform hover:-translate-y-0.5">
+            Complete Registration & Get 100 Points &rarr;
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-stone-900 text-stone-300 py-8 text-center text-xs border-t border-stone-800">
+    <p>&copy; 2026 Savoria Gourmet Delivery Co. All rights reserved. <a href="../index.html" class="text-amber-400 hover:underline ml-2">Back to Homepage</a></p>
+  </footer>
+
+  <!-- Shared JS -->
+  <script src="../js/main.js"></script>
+
+  <script>
+    function handleSignupSubmit(e) {
+      e.preventDefault();
+      const fname = document.getElementById('su-fname').value.trim();
+      const lname = document.getElementById('su-lname').value.trim();
+      const email = document.getElementById('su-email').value.trim();
+      const fullName = `${fname} ${lname}`;
+
+      FOOD_AUTH.setUser({
+        name: fullName,
+        email: email,
+        points: 100
+      });
+
+      showToast(`🎉 Account created! Welcome to Savoria, ${fname}! 100 points added.`, 'success');
+      setTimeout(() => {
+        window.location.href = '../index.html';
+      }, 700);
+    }
+  </script>
 </body>
 
 </html>

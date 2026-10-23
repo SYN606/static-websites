@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Savoria - Your Feast Cart & Checkout</title>
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Compiled Tailwind CSS -->
+  <link rel="stylesheet" href="../output.css">
+</head>
+
+<body class="bg-stone-50 text-stone-800 flex flex-col min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-stone-200 shadow-sm w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="../index.html" class="flex items-center gap-2.5 group">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition transform">
+            <i class="fa-solid fa-utensils text-lg"></i>
+          </div>
+          <div>
+            <span class="text-2xl font-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Savoria</span>
+            <span class="hidden sm:block text-[10px] uppercase font-extrabold tracking-widest text-stone-400 -mt-1">Gourmet Delivery</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden lg:flex items-center space-x-1 font-semibold text-stone-600 text-sm">
+          <a href="../index.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Home</a>
+          <a href="menu.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Full Menu</a>
+          <a href="restaurants.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Kitchens & Chefs</a>
+          <a href="order-tracking.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Track Order</a>
+          <a href="about.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">About Us</a>
+          <a href="faq.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">FAQs</a>
+          <a href="contact.html" class="px-3.5 py-2 rounded-xl hover:text-amber-600 hover:bg-stone-50 transition">Contact</a>
+        </div>
+
+        <!-- Right Actions -->
+        <div class="flex items-center gap-3">
+          <div class="auth-nav-container" data-root="../"></div>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-xl text-stone-600 hover:bg-stone-100 focus:outline-none">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-stone-100 bg-white px-4 pt-3 pb-6 space-y-2">
+      <a href="../index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Home</a>
+      <a href="menu.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Full Menu</a>
+      <a href="restaurants.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Kitchens & Chefs</a>
+      <a href="order-tracking.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Track Order</a>
+      <a href="cart.html" class="block px-3 py-2 rounded-lg text-base font-bold text-amber-600 bg-amber-50">Your Cart</a>
+      <a href="about.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">About Us</a>
+      <a href="faq.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">FAQs</a>
+      <a href="contact.html" class="block px-3 py-2 rounded-lg text-base font-medium text-stone-700 hover:bg-amber-50 hover:text-amber-600">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Checkout Header -->
+  <header class="bg-gradient-to-r from-stone-900 via-stone-950 to-amber-950 text-white py-12 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-amber-500/20 text-amber-300 text-xs uppercase font-extrabold tracking-wider mb-2 border border-amber-500/30">
+        Review & Checkout
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-black">Your Feast Cart</h1>
+      <p class="mt-2 text-stone-300 text-xs sm:text-sm">Review your selected artisan dishes, customize tips, and schedule fast delivery.</p>
+    </div>
+  </header>
+
+  <!-- Main Cart & Checkout Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full">
+    <!-- Empty Cart Notification -->
+    <div id="cart-empty-view" class="hidden text-center py-20 bg-white rounded-3xl shadow-sm border border-stone-200 p-8 max-w-xl mx-auto">
+      <div class="w-20 h-20 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-3xl mx-auto mb-4">
+        <i class="fa-solid fa-basket-shopping"></i>
+      </div>
+      <h2 class="text-2xl font-black text-stone-800">Your cart is currently empty</h2>
+      <p class="text-xs text-stone-500 mt-2 max-w-md mx-auto">Discover wood-fired pizzas, wagyu burgers, fresh sashimi rolls, and decadent desserts ready to be delivered.</p>
+      <a href="menu.html" class="mt-6 inline-block px-6 py-3.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-stone-950 font-black text-xs rounded-xl shadow-lg transition">
+        Browse Delicious Menu &rarr;
+      </a>
+    </div>
+
+    <!-- Filled Cart Layout -->
+    <div id="cart-active-view" class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+      <!-- Left Column: Items List & Delivery Form (Col 7) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- Cart Items Box -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200">
+          <div class="flex items-center justify-between pb-4 border-b border-stone-100 mb-6">
+            <h2 class="text-xl font-black text-stone-900">Your Selected Dishes</h2>
+            <button onclick="clearEntireCart()" class="text-xs font-semibold text-stone-400 hover:text-rose-600 transition flex items-center gap-1">
+              <i class="fa-regular fa-trash-can"></i>
+              <span>Clear Cart</span>
+            </button>
+          </div>
+
+          <div id="cart-items-container" class="space-y-4">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+        <!-- Delivery Address & Schedule Box -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200 space-y-4">
+          <h3 class="text-lg font-black text-stone-900 flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-amber-500"></i>
+            <span>Delivery Destination</span>
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Street Address *</label>
+              <input type="text" id="delivery-address" required placeholder="742 Evergreen Terrace" value="450 Broadway Ave, Apt 4B" class="w-full border border-stone-300 rounded-xl px-4 py-2.5 text-xs focus:ring-2 focus:ring-amber-500 focus:outline-none bg-stone-50">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Apt / Suite / Gate Code</label>
+              <input type="text" id="delivery-apt" placeholder="Suite 204 / Ring #12" class="w-full border border-stone-300 rounded-xl px-4 py-2.5 text-xs focus:ring-2 focus:ring-amber-500 focus:outline-none bg-stone-50">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Recipient Name *</label>
+              <input type="text" id="delivery-name" required placeholder="Alex Morgan" value="Alex Morgan" class="w-full border border-stone-300 rounded-xl px-4 py-2.5 text-xs focus:ring-2 focus:ring-amber-500 focus:outline-none bg-stone-50">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Phone Number *</label>
+              <input type="tel" id="delivery-phone" required placeholder="+1 (555) 019-2834" value="+1 (555) 438-9201" class="w-full border border-stone-300 rounded-xl px-4 py-2.5 text-xs focus:ring-2 focus:ring-amber-500 focus:outline-none bg-stone-50">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Drop-off Instructions</label>
+            <input type="text" id="delivery-notes" placeholder="e.g. Leave with doorman, call upon arrival..." class="w-full border border-stone-300 rounded-xl px-4 py-2.5 text-xs focus:ring-2 focus:ring-amber-500 focus:outline-none bg-stone-50">
+          </div>
+
+          <!-- Speed Selection -->
+          <div class="pt-2">
+            <label class="block text-xs font-bold text-stone-700 uppercase mb-2">Delivery Speed</label>
+            <div class="grid grid-cols-2 gap-3 text-xs">
+              <label class="border-2 border-amber-500 bg-amber-50/50 p-3 rounded-2xl flex items-center justify-between cursor-pointer">
+                <div>
+                  <span class="font-bold text-stone-900 block">⚡ Priority Flash</span>
+                  <span class="text-[10px] text-stone-500">Delivered in 20-30 mins</span>
+                </div>
+                <input type="radio" name="delivery-speed" value="priority" checked class="text-amber-600 focus:ring-amber-500">
+              </label>
+              <label class="border border-stone-200 hover:border-amber-400 p-3 rounded-2xl flex items-center justify-between cursor-pointer">
+                <div>
+                  <span class="font-bold text-stone-900 block">📅 Standard Delivery</span>
+                  <span class="text-[10px] text-stone-500">Delivered in 45-60 mins</span>
+                </div>
+                <input type="radio" name="delivery-speed" value="standard" class="text-amber-600 focus:ring-amber-500">
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Cost Breakdown & Payment (Col 5) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- Summary Card -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200 space-y-5">
+          <h3 class="text-lg font-black text-stone-900">Order Summary</h3>
+
+          <!-- Promo Coupon Box -->
+          <div>
+            <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Promo Coupon Code</label>
+            <div class="flex gap-2">
+              <input type="text" id="coupon-input" placeholder="Try FEAST20" class="flex-1 uppercase border border-stone-300 rounded-xl px-3.5 py-2 text-xs font-bold focus:ring-2 focus:ring-amber-500 focus:outline-none bg-stone-50">
+              <button onclick="applyCoupon()" class="px-4 py-2 bg-stone-900 hover:bg-amber-600 text-white font-bold text-xs rounded-xl transition">
+                Apply
+              </button>
+            </div>
+            <div id="coupon-status" class="mt-1 text-xs"></div>
+          </div>
+
+          <!-- Driver Tip Selector -->
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <label class="text-xs font-bold text-stone-700 uppercase">Driver Gratuity</label>
+              <span class="text-[10px] text-stone-400">100% goes directly to courier</span>
+            </div>
+            <div class="grid grid-cols-4 gap-2 text-xs text-center font-bold">
+              <button onclick="setTip(0)" class="tip-btn px-2 py-2 rounded-xl border border-stone-200 hover:border-amber-500 transition" data-tip="0">$0</button>
+              <button onclick="setTip(3)" class="tip-btn px-2 py-2 rounded-xl border border-stone-200 hover:border-amber-500 transition" data-tip="3">$3</button>
+              <button onclick="setTip(5)" class="tip-btn active px-2 py-2 rounded-xl bg-amber-500 text-stone-950 font-black border border-amber-500 transition" data-tip="5">$5</button>
+              <button onclick="setTip(8)" class="tip-btn px-2 py-2 rounded-xl border border-stone-200 hover:border-amber-500 transition" data-tip="8">$8</button>
+            </div>
+          </div>
+
+          <!-- Financial Line Items -->
+          <div class="space-y-2.5 pt-3 border-t border-stone-100 text-xs text-stone-600">
+            <div class="flex justify-between">
+              <span>Items Subtotal:</span>
+              <span id="summary-subtotal" class="font-bold text-stone-900">$0.00</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Delivery Fee:</span>
+              <span id="summary-delivery" class="font-bold text-stone-900">$3.99</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Platform & Service Fee:</span>
+              <span class="font-bold text-stone-900">$1.99</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Courier Tip:</span>
+              <span id="summary-tip" class="font-bold text-stone-900">$5.00</span>
+            </div>
+            <div id="discount-row" class="hidden flex justify-between text-emerald-600 font-bold">
+              <span>Promo Discount (20%):</span>
+              <span id="summary-discount">-$0.00</span>
+            </div>
+          </div>
+
+          <!-- Grand Total -->
+          <div class="pt-4 border-t border-stone-200 flex justify-between items-baseline">
+            <div>
+              <span class="text-xs uppercase font-extrabold text-stone-400 block">Total Amount</span>
+              <span class="text-[10px] text-stone-400">Includes all local taxes</span>
+            </div>
+            <span id="summary-total" class="text-3xl font-black text-amber-600">$0.00</span>
+          </div>
+
+          <!-- Payment Selector -->
+          <div class="pt-2">
+            <label class="block text-xs font-bold text-stone-700 uppercase mb-2">Payment Option</label>
+            <div class="space-y-2 text-xs">
+              <label class="border border-stone-200 p-3 rounded-2xl flex items-center justify-between cursor-pointer hover:border-amber-500">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-credit-card text-stone-700"></i>
+                  <span class="font-bold">Credit / Debit Card</span>
+                </div>
+                <input type="radio" name="pay-method" value="card" checked class="text-amber-600 focus:ring-amber-500">
+              </label>
+
+              <label class="border border-stone-200 p-3 rounded-2xl flex items-center justify-between cursor-pointer hover:border-amber-500">
+                <div class="flex items-center gap-2">
+                  <i class="fa-brands fa-apple text-stone-800 text-base"></i>
+                  <span class="font-bold">Apple Pay / Google Wallet</span>
+                </div>
+                <input type="radio" name="pay-method" value="wallet" class="text-amber-600 focus:ring-amber-500">
+              </label>
+
+              <label class="border border-stone-200 p-3 rounded-2xl flex items-center justify-between cursor-pointer hover:border-amber-500">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-money-bill-wave text-emerald-600"></i>
+                  <span class="font-bold">Cash on Contactless Delivery</span>
+                </div>
+                <input type="radio" name="pay-method" value="cash" class="text-amber-600 focus:ring-amber-500">
+              </label>
+            </div>
+          </div>
+
+          <!-- Place Order Trigger Button -->
+          <button onclick="placeOrder()" class="w-full py-4 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-stone-950 font-black text-sm rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span>Confirm & Place Feast Order</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Celebratory Order Confirmation Modal -->
+  <div id="order-success-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-8 text-center shadow-2xl border border-stone-200 relative animate-fade-in">
+      <div class="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <span class="text-xs font-bold uppercase tracking-widest text-emerald-600 block mb-1">Order Confirmed!</span>
+      <h3 class="text-2xl font-black text-stone-900">Your Feast is Sizzling in the Kitchen!</h3>
+      <p class="text-xs text-stone-500 mt-2">The culinary masters have received your ticket and are preparing fresh ingredients.</p>
+
+      <div class="my-6 p-4 bg-stone-50 rounded-2xl border border-stone-200 text-left text-xs space-y-2">
+        <div class="flex justify-between">
+          <span class="text-stone-400">Order ID:</span>
+          <span id="conf-order-id" class="font-bold text-stone-900"></span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-stone-400">Estimated Arrival:</span>
+          <span class="font-bold text-amber-600">22 - 28 Minutes</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-stone-400">Delivery Address:</span>
+          <span id="conf-address" class="font-bold text-stone-900 line-clamp-1"></span>
+        </div>
+        <div class="flex justify-between pt-2 border-t border-stone-200">
+          <span class="text-stone-500 font-bold">Total Paid:</span>
+          <span id="conf-total" class="font-black text-stone-900"></span>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a id="track-order-btn" href="#" class="flex-1 py-3 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-stone-950 font-black text-xs rounded-xl shadow transition flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-location-crosshairs"></i>
+          <span>Track Order Live</span>
+        </a>
+        <a href="menu.html" class="px-5 py-3 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-xs rounded-xl transition">
+          Order More
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-stone-900 text-stone-300 pt-16 pb-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 rounded-lg bg-amber-500 text-stone-950 flex items-center justify-center font-bold">
+            <i class="fa-solid fa-utensils text-sm"></i>
+          </div>
+          <span class="text-xl font-bold text-white">Savoria</span>
+        </div>
+        <p class="text-sm text-stone-400 leading-relaxed mb-6">
+          Curating exceptional culinary feasts from premier independent kitchens and delivering them piping hot with white-glove speed.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Navigation</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="../index.html" class="hover:text-white transition">Home</a></li>
+          <li><a href="menu.html" class="hover:text-white transition">Full Gourmet Menu</a></li>
+          <li><a href="restaurants.html" class="hover:text-white transition">Kitchen Partners</a></li>
+          <li><a href="order-tracking.html" class="hover:text-white transition">Live Order Tracking</a></li>
+          <li><a href="cart.html" class="text-amber-400 font-bold hover:text-white transition">Your Cart</a></li>
+          <li><a href="about.html" class="hover:text-white transition">About Our Mission</a></li>
+          <li><a href="faq.html" class="hover:text-white transition">Delivery & FAQs</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">Contact & Help</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Cuisines Offered</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="menu.html?cat=Italian" class="hover:text-white transition">Wood-Fired Pizza & Pasta</a></li>
+          <li><a href="menu.html?cat=Japanese" class="hover:text-white transition">Sushi Rolls, Sashimi & Ramen</a></li>
+          <li><a href="menu.html?cat=Burgers" class="hover:text-white transition">Wagyu Burgers & Smokehouse BBQ</a></li>
+          <li><a href="menu.html?cat=Mexican" class="hover:text-white transition">Jalisco Birria Tacos & Quesadillas</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Need Immediate Help?</h4>
+        <p class="text-xs text-stone-400 mb-2">Our customer concierge is available 24/7 for order updates or dietary inquiries.</p>
+        <p class="text-sm font-bold text-white mb-4">+1 (800) 929-FOOD</p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500">
+      <p>&copy; 2026 Savoria Gourmet Delivery Co. All rights reserved.</p>
+      <div class="flex gap-4 mt-4 sm:mt-0">
+        <a href="ToS_and_Privacy.html" class="hover:text-stone-300">Terms of Service</a>
+        <a href="ToS_and_Privacy.html" class="hover:text-stone-300">Privacy Policy</a>
+        <a href="faq.html" class="hover:text-stone-300">Help Desk</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared JS -->
+  <script src="../js/main.js"></script>
+
+  <script>
+    let currentTip = 5;
+    let appliedDiscountPercent = 0;
+
+    function renderCartPage() {
+      const cart = FOOD_CART.getCart();
+      const emptyView = document.getElementById('cart-empty-view');
+      const activeView = document.getElementById('cart-active-view');
+      const itemsContainer = document.getElementById('cart-items-container');
+
+      if (!cart || cart.length === 0) {
+        emptyView.classList.remove('hidden');
+        activeView.classList.add('hidden');
+        return;
+      }
+
+      emptyView.classList.add('hidden');
+      activeView.classList.remove('hidden');
+
+      itemsContainer.innerHTML = cart.map(item => `
+        <div class="flex items-center gap-4 p-3 bg-stone-50 rounded-2xl border border-stone-100 hover:border-amber-200 transition">
+          <img src="${item.image}" alt="${item.name}" class="w-16 h-16 rounded-xl object-cover flex-shrink-0">
+          <div class="flex-1 min-w-0">
+            <h4 class="text-sm font-bold text-stone-900 truncate">${item.name}</h4>
+            <span class="text-xs text-amber-600 font-bold">$${item.price.toFixed(2)} each</span>
+          </div>
+
+          <!-- Quantity Controls -->
+          <div class="flex items-center border border-stone-300 rounded-xl bg-white px-2 py-0.5">
+            <button onclick="updateQty(${item.id}, -1)" class="w-6 h-6 text-stone-600 hover:text-amber-600 font-black text-xs flex items-center justify-center">-</button>
+            <span class="w-6 text-center text-xs font-bold">${item.quantity}</span>
+            <button onclick="updateQty(${item.id}, 1)" class="w-6 h-6 text-stone-600 hover:text-amber-600 font-black text-xs flex items-center justify-center">+</button>
+          </div>
+
+          <!-- Item Total -->
+          <span class="text-sm font-black text-stone-900 w-16 text-right">$${(item.price * item.quantity).toFixed(2)}</span>
+
+          <!-- Delete -->
+          <button onclick="removeItem(${item.id})" class="text-stone-400 hover:text-rose-600 p-2 transition">
+            <i class="fa-regular fa-trash-can text-sm"></i>
+          </button>
+        </div>
+      `).join('');
+
+      recalculateTotals();
+    }
+
+    function updateQty(id, delta) {
+      FOOD_CART.updateQuantity(id, delta);
+      renderCartPage();
+    }
+
+    function removeItem(id) {
+      FOOD_CART.removeItem(id);
+      renderCartPage();
+    }
+
+    function clearEntireCart() {
+      if (confirm("Are you sure you want to empty your cart?")) {
+        FOOD_CART.clearCart();
+        renderCartPage();
+      }
+    }
+
+    function setTip(val) {
+      currentTip = val;
+      document.querySelectorAll('.tip-btn').forEach(btn => {
+        if (Number(btn.getAttribute('data-tip')) === val) {
+          btn.className = 'tip-btn active px-2 py-2 rounded-xl bg-amber-500 text-stone-950 font-black border border-amber-500 transition';
+        } else {
+          btn.className = 'tip-btn px-2 py-2 rounded-xl border border-stone-200 hover:border-amber-500 transition text-stone-700';
+        }
+      });
+      recalculateTotals();
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById('coupon-input').value.trim().toUpperCase();
+      const statusEl = document.getElementById('coupon-status');
+
+      if (code === 'FEAST20') {
+        appliedDiscountPercent = 20;
+        statusEl.innerHTML = `<span class="text-emerald-600 font-bold">✓ Coupon FEAST20 applied! 20% discount granted.</span>`;
+        showToast('Promo code FEAST20 applied!', 'success');
+      } else if (code) {
+        appliedDiscountPercent = 0;
+        statusEl.innerHTML = `<span class="text-rose-600 font-bold">✗ Invalid promo code. Use code FEAST20.</span>`;
+      } else {
+        appliedDiscountPercent = 0;
+        statusEl.innerHTML = '';
+      }
+      recalculateTotals();
+    }
+
+    function recalculateTotals() {
+      const subtotal = FOOD_CART.getSubtotal();
+      const deliveryFee = subtotal > 40 ? 0 : 3.99;
+      const serviceFee = subtotal > 0 ? 1.99 : 0;
+      const discount = subtotal * (appliedDiscountPercent / 100);
+      const total = Math.max(0, subtotal - discount + deliveryFee + serviceFee + currentTip);
+
+      document.getElementById('summary-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('summary-delivery').textContent = deliveryFee === 0 ? 'FREE' : `$${deliveryFee.toFixed(2)}`;
+      document.getElementById('summary-tip').textContent = `$${currentTip.toFixed(2)}`;
+
+      const discountRow = document.getElementById('discount-row');
+      if (appliedDiscountPercent > 0) {
+        discountRow.classList.remove('hidden');
+        document.getElementById('summary-discount').textContent = `-$${discount.toFixed(2)}`;
+      } else {
+        discountRow.classList.add('hidden');
+      }
+
+      document.getElementById('summary-total').textContent = `$${total.toFixed(2)}`;
+    }
+
+    function placeOrder() {
+      const cart = FOOD_CART.getCart();
+      if (!cart || cart.length === 0) {
+        showToast('Your cart is empty! Add dishes to proceed.', 'warning');
+        return;
+      }
+
+      const address = document.getElementById('delivery-address').value.trim();
+      const phone = document.getElementById('delivery-phone').value.trim();
+      if (!address || !phone) {
+        showToast('Please provide your delivery address and phone number.', 'warning');
+        return;
+      }
+
+      const orderId = 'SAV-' + Math.floor(10000 + Math.random() * 90000);
+      const total = document.getElementById('summary-total').textContent;
+
+      document.getElementById('conf-order-id').textContent = orderId;
+      document.getElementById('conf-address').textContent = address;
+      document.getElementById('conf-total').textContent = total;
+      document.getElementById('track-order-btn').href = `order-tracking.html?orderId=${orderId}`;
+
+      // Show confirmation modal
+      document.getElementById('order-success-modal').classList.remove('hidden');
+
+      // Clear cart
+      FOOD_CART.clearCart();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Pre-fill user details if logged in
+      const user = FOOD_AUTH.getUser();
+      if (user && user.name) {
+        document.getElementById('delivery-name').value = user.name;
+      }
+      renderCartPage();
+    });
+
+    window.addEventListener('cartUpdated', () => {
+      renderCartPage();
+    });
+  </script>
+</body>
+
+</html>

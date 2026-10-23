@@ -25,15 +25,7 @@ const server = Bun.serve({
       return new Response(file);
     }
 
-    // Support root /img/... fallback to ./pages/img/...
-    if (pathname.startsWith("/img/")) {
-      const imgFallback = Bun.file("./pages" + pathname);
-      if (await imgFallback.exists()) {
-        return new Response(imgFallback);
-      }
-    }
-
-    // Check clean URLs (e.g. /pages/packages -> /pages/packages.html)
+    // Check clean URLs (e.g. /pages/menu -> /pages/menu.html)
     if (!pathname.includes(".")) {
       const htmlFile = Bun.file("." + pathname + ".html");
       if (await htmlFile.exists()) {
@@ -52,15 +44,15 @@ const server = Bun.serve({
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found | Voyage Vista</title>
+  <title>404 - Dish Not Found | Savoria</title>
   <link rel="stylesheet" href="/output.css">
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen text-center p-6">
-  <div class="max-w-md bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
-    <h1 class="text-6xl font-black text-indigo-600 mb-2">404</h1>
-    <h2 class="text-xl font-bold text-gray-800 mb-2">Destination Not Found</h2>
-    <p class="text-xs text-gray-500 mb-6">The page or asset you requested does not exist or has moved.</p>
-    <a href="/index.html" class="px-5 py-2.5 bg-indigo-600 text-white text-xs font-bold rounded-xl shadow hover:bg-indigo-700 transition">Return to Home</a>
+<body class="bg-stone-50 flex items-center justify-center min-h-screen text-center p-6">
+  <div class="max-w-md bg-white p-8 rounded-3xl shadow-xl border border-stone-200">
+    <h1 class="text-6xl font-black text-amber-600 mb-2">404</h1>
+    <h2 class="text-xl font-bold text-stone-800 mb-2">Dish Not on the Menu</h2>
+    <p class="text-xs text-stone-500 mb-6">The page or culinary feast you requested does not exist or has moved.</p>
+    <a href="/index.html" class="px-5 py-2.5 bg-amber-500 text-stone-950 text-xs font-bold rounded-xl shadow hover:bg-amber-600 transition">Return to Kitchen</a>
   </div>
 </body>
 </html>`,
@@ -78,4 +70,4 @@ const server = Bun.serve({
   },
 });
 
-console.log(`🚀 Voyage Vista static server running at http://localhost:${server.port}`);
+console.log(`🚀 Savoria Food Delivery server running at http://localhost:${server.port}`);

@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------
-# Voyage Vista - Apache Static Web Server Configuration (.htaccess)
+# Savoria - Apache Static Web Server Configuration (.htaccess)
 # ----------------------------------------------------------------------
 
 # 1. Default Document & Directory Options
@@ -56,16 +56,12 @@ AddDefaultCharset UTF-8
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Rewrite root /img/ requests to pages/img/ if accessed from root
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^img/(.*)$ pages/img/$1 [L]
-
     # If the file or directory exists, serve directly
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
 
-    # Support clean URLs without .html extension (e.g. /pages/packages -> /pages/packages.html)
+    # Support clean URLs without .html extension (e.g. /pages/menu -> /pages/menu.html)
     RewriteCond %{REQUEST_FILENAME}.html -f
     RewriteRule ^(.*)$ $1.html [L]
 </IfModule>
